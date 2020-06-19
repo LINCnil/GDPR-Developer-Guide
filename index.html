@@ -4,26 +4,70 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title></title>
+  <title>Guida per sviluppatori al GDPR</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <style type="text/css">
   
@@ -379,636 +423,644 @@ document.querySelector(output).innerHTML += toc;
                                 <p align="center">
 <img src="https://github.com/LINCnil/GDPR-Developer-Guide/raw/master/templates/BANNIERE-EN.JPG" width="100%" align="middle">
 </p>
-
-
-<h1 id="gdpr-developer-guide">GDPR Developer Guide</h1>
-<h4 id="in-order-to-assist-web-and-application-developers-in-making-their-work-gdpr-compliant-the-cnil-has-drawn-up-a-new-guide-to-best-practices-under-an-open-source-license-which-is-intended-to-be-enriched-by-professionals.">In order to assist web and application developers in making their work GDPR-compliant, the CNIL has drawn up a new guide to best practices under an open source license, which is intended to be enriched by professionals.</h4>
-<p>This guide is published under <a href="https://www.gnu.org/licenses/gpl-3.0.html">license GPLv3</a> and under <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">open license 2.0</a> (explicitly compatible with <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">CC-BY 4.0 FR</a>). You can freely contribute to its redaction.</p>
-<p>The <a href="https://github.com/LINCnil/Guide-RGPD-du-developpeur">French version</a> is the authentic version of this guide.</p>
-<h4 id="is-this-guide-for-developers-only">Is this guide for developers only?</h4>
-<p>This guide is mainly aimed at developers working alone or in teams, team leaders, service providers but also at anyone interested in web or application development.</p>
-<p>It provides advice and best practices, and thus gives useful keys to understand the GDPR for every stakeholder, regardless of the size of their structure. It can also stimulate discussions and practices within the organisations and in customer relationships.</p>
-<h4 id="what-does-the-guide-contain">What does the guide contain?</h4>
-<p>This guide is divided into <strong>16 thematic sheets</strong> which cover most of the needs of developers at each stage of their project, from the preparation of the development to the use of analytics.</p>
-<p>The General Data Protection Regulation (or GDPR) specifies that the protection of the rights and freedoms of natural persons requires that <strong>&quot;appropriate technical and organisational measures be taken to ensure that the requirements of this Regulation are met&quot;</strong> (Recital 78).</p>
-<p>The determination of these measures is necessarily <strong>related to the context of the processing operations put in place</strong>, and the controller (the public or private entity processing personal data) must therefore ensure the security of the data it is called upon to process.</p>
-<p>The good practices in this guide <strong>are therefore not intended to cover all the requirements of the regulations nor to be prescriptive</strong>, they provide a first level of measures to take into account privacy protection issues in IT developments that are intended to be applied to all data processing projects. Depending on the nature of the processing carried out in certain cases, additional measures will have to be implemented in order to fully comply with the regulations.</p>
-<h2 id="table-of-contents">Table of contents</h2>
-<ol start="0" style="list-style-type: decimal">
-<li><p><a href="#Sheet_n°0_:_Develop_in_compliance_with_the_RGPD">Develop in compliance with the RGPD</a></p></li>
-<li><p><a href="#Sheet_n°1_:_Identify_personal_data">Identify personal data</a></p></li>
-<li><p><a href="#Sheet_n°2_:_Prepare_your_development">Prepare your development</a></p></li>
-<li><p><a href="#Sheet_n°3_:_Securing_your_development_environment">Securing your development environment</a></p></li>
-<li><p><a href="#Sheet_n°4_:_Manage_your_source_code">Manage your source code</a></p></li>
-<li><p><a href="#Sheet_n°5_:_Make_an_informed_choice_of_architecture">Make an informed choice of architecture</a></p></li>
-<li><p><a href="#Sheet_n°6_:_Securing_your_websites,_applications_and_servers">Securing your websites, applications and servers</a></p></li>
-<li><p><a href="#Sheet_n°7_:_Minimize_data_collection">Minimize data collection</a></p></li>
-<li><p><a href="#Sheet_n°8_:_Manage_users_profiles">Manage user profiles</a></p></li>
-<li><p><a href="#Sheet_n°09_:_Control_your_libraries_and_SDKs">Control your libraries and SDKs</a></p></li>
-<li><p><a href="#Sheet_n°10_:_Ensure_quality_of_the_code_and_its_documentation">Ensure the quality of the code and its documentation</a></p></li>
-<li><p><a href="#Sheet_n°11_:_Test_your_applications">Test your applications</a></p></li>
-<li><p><a href="#Sheet_n°12_:_Inform_users">Inform users</a></p></li>
-<li><p><a href="#Sheet_n°13_:_Prepare_for_the_exercise_of_people_rights">Prepare to exercise people rights</a></p></li>
-<li><p><a href="#Sheet_n°14_:_Define_a_data_retention_period">Define a data retention period</a></p></li>
-<li><p><a href="#Sheet_n°15_:_Take_into_account_the_legal_bases_in_the_technical_implementation">Take into account the legal basis in the technical implementation</a></p></li>
-<li><p><a href="#Sheet_n°16:_Use_analytics_on_your_websites_and_applications">Use analytics on your websites and applications</a></p></li>
+<h1 id="gdpr-guida-per-sviluppatori">GDPR Guida per sviluppatori</h1>
+<h4 id="al-fine-di-aiutare-gli-sviluppatori-di-applicativi-e-di-siti-web-a-rendere-il-loro-lavoro-rispondente-ai-requisiti-del-gdpr-lo-cnil-ha-redatto-una-nuova-guida-alle-buone-pratiche-sotto-licenza-aperta-in-modo-che-possa-essere-arricchita-da-altri-professionisti.">Al fine di aiutare gli sviluppatori di applicativi e di siti web a rendere il loro lavoro rispondente ai requisiti del GDPR, lo CNIL ha redatto una nuova guida alle buone pratiche sotto licenza aperta, in modo che possa essere arricchita da altri professionisti.</h4>
+<p>Questa guida è pubblicata con <a href="https://www.gnu.org/licenses/gpl-3.0.html">licenza GPLv3</a> e <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">open license 2.0</a> (esplicitamente compatibile con <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">CC-BY 4.0 FR</a>). Potete contribuire liberamente alla sua reedazione.</p>
+<p>La <a href="https://github.com/LINCnil/Guide-RGPD-du-developpeur">versione francese</a> è la versione autentica di questa guida.</p>
+<p>Questa versione italiana è a cura di <a href="https://github.com/richardmacduff/">Walter Vannini</a>.</p>
+<p><strong>Nota per la versione italiana</strong>: i link puntano ancora alle destinazioni originali in Inglese (tranne qualcuna in Francese); una volta completata la traduzione li sostituirò con analoghe destinazioni in Italiano quando possibile.</p>
+<p><strong>Nota 2 per la versione italiana</strong>: il link al modulo per la notifica di un <em>data breach</em> punta già al modulo ufficiale del Garante per la Protezione dei Dati Personali (gpdp.it)</p>
+<p>La guida contiene indicazioni e buone pratiche, e pertanto fornisce delle chiavi utili per comprendere il GDPR a ogni stakeholder, quale che sia la dimensione della sua organizzazione. La guida può anche stimolare la discussione e lo sviluppo di pratiche all’interno delle organizzazioni e nelle relazioni con i clienti.</p>
+<h2 id="che-cosa-contiene-la-guida">Che cosa contiene la guida?</h2>
+<p>Questa guida è divisa in <strong>16 schede tematiche</strong> che coprono la maggior parte delle necessità degli sviluppatori in ciascuno stadio di progetto, dalla preparazione dello sviluppo all’uso di analytics.</p>
+<p>Il Regolamento Generale per la Protezione dei Dati Personali (GDPR) specifica che la protezione dei diritti e delle libertà delle persone fisiche richiede <strong>“l’adozione di misure tecniche e organizzative adeguate per garantire il rispetto delle disposizioni del presente regolamento”</strong> (Considerando 78).</p>
+<p>La determinazione di tali misure è necessariamente <strong>collegate al contesto delle operazioni di trattamento poste in essere</strong>, e il Titolare del trattamento (l’entità pubblica o privata che tratta i dati personali) deve pertanto assicurare la sicurezza dei dati che è chiamato a trattare.</p>
+<p>Le buone pratiche di questa guida, pertanto, <strong>non intendono coprire tutte le richieste dei regolamenti né intendono essere prescrittive</strong>, ma forniscono un primo livello di misure per affrontare i problemi di sicurezza dei dati negli sviluppi IT che riguardano il trattamento di dati personali. A seconda della natura dei trattamenti, in alcuni casi potrà essere necessario implementare misure aggiuntive al fine di rispondere pienamente ai requisiti di legge.</p>
+<h2 id="sommario">Sommario</h2>
+<ol start="0" type="1">
+<li><p><a href="#Scheda_n°0_:_Sviluppa_in_linea_con_il_GDPR">Sviluppa in linea con il GDPR</a></p></li>
+<li><p><a href="#Scheda_n°1_:_Individua_i_dati_personali">Individua i dati personali</a></p></li>
+<li><p><a href="#Scheda_n°2_:_Prepara_lo_sviluppo">Prepara lo sviluppo</a></p></li>
+<li><p><a href="#Scheda_n°3_:_Sviluppa_in_un_ambiente_sicuro">Sviluppa in un ambiente sicuro</a></p></li>
+<li><p><a href="#Scheda_n°4_:_Gestisci_il_codice_sorgente">Gestisci il codice sorgente</a></p></li>
+<li><p><a href="#Scheda_n°5_:_Fai_scelte_architetturali_informate">Fai scelte architetturali informate</a></p></li>
+<li><p><a href="#Scheda_n°6_:_Metti_in_sicurezza_siti,_applicazioni_e_server">Metti in sicurezza siti, applicazioni e server</a></p></li>
+<li><p><a href="#Scheda_n°7_:_Minimizza_la_raccolta_dati">Minimizza la raccolta dati</a></p></li>
+<li><p><a href="#Scheda_n°8_:_Gestisci_i_profili_utente">Gestisci i profili utente</a></p></li>
+<li><p><a href="#Scheda_n°09_:_Controlla_librerie_e_SDK">Controlla librerie e SDK</a></p></li>
+<li><p><a href="#Scheda_n°10_:_Garantisci_la_qualità_del_codice_e_della_documentazione">Garantisci la qualità del codice e della documentazione</a></p></li>
+<li><p><a href="#Scheda_n°11_:_Testa_le_tue_applicazioni">Testa le tue applicazioni</a></p></li>
+<li><p><a href="#Scheda_n°12_:_Informa_gli_utenti">Informa gli utenti</a></p></li>
+<li><p><a href="#Scheda_n°13_:_Preparati_all&#39;esercizio_dei_diritti_degli_interessati">Preparati all’esercizio dei diritti degli interessati</a></p></li>
+<li><p><a href="#Scheda_n°14_:_Definisci_un_periodo_conservazione_dei_dati">Definisci un periodo di conservazione dei dati</a></p></li>
+<li><p><a href="#Scheda_n°15_:_Considera_la_base_giuridica_durante_l&#39;implementazione_tecnica">Considera la base giuridica durante l’implementazione tecnica</a></p></li>
+<li><p><a href="#Scheda_n°16:_Usa_le_analytics_nei_tuoi_siti_e_applicazioni">Usa le analytics nei tuoi siti e applicazioni</a></p></li>
 </ol>
-<h2 id="how-can-i-contribute-to-this-guide">How can I contribute to this guide?</h2>
-<p><strong>This guide is available in two versions</strong>:</p>
+<h2 id="come-posso-contribuire-a-questa-guida">Come posso contribuire a questa guida?</h2>
+<p><strong>Questa guida è disponibile in due versioni</strong>:</p>
 <ul>
-<li>A <a href="http://www.cnil.fr/en/rgpd-developers-guide">web version on the CNIL website</a> and in the tab <a href="https://github.com/LINCnil/GDPR-Developer-Guide/releases">the &quot;Releases&quot; tab</a> of this repository;</li>
-<li>This <a href="https://github.com/LINCnil/GDPR-Developer-Guide">GitHub version</a>, which offers the possibility for everyone to contribute.</li>
+<li>Una <a href="http://www.cnil.fr/en/rgpd-developers-guide">versione web sul sito di CNIL</a> e <a href="https://github.com/LINCnil/GDPR-Developer-Guide/releases">nel tab “Releases”</a> di questo repository;</li>
+<li>Questa <a href="https://github.com/LINCnil/GDPR-Developer-Guide">versione GitHub</a>, che offre a chiunque la possibilità di contribuire.</li>
 </ul>
-<p><strong>The contribution is done in a few steps</strong>:</p>
+<p><strong>Il contributo si articola in alcuni passi</strong>:</p>
 <ul>
-<li>Register on Github;</li>
-<li>Go to the project page;</li>
-<li>You can:
+<li>Registrati su GitHub;</li>
+<li>Vai alla pagina di progetto</li>
+<li>Puoi:
 <ul>
-<li>Use the &quot;Issue&quot; tab to open comments or participate in the discussion</li>
-<li>Use the &quot;Fork&quot; option to make your own modifications and propose their inclusion via the &quot;Pull Requests&quot; button.</li>
+<li>usare il tab “Issue” per aprire commenti o partecipare alla discussione</li>
+<li>Usare l’opzione “Fork” per apportare le tue modifiche e proporre la loro inclusione tramite il bottone “Pull Requests”.</li>
 </ul></li>
 </ul>
-<p><strong>Your contribution proposal will be examined by the CNIL before publication</strong>. The web version of the RGPD developer's guide will be regularly updated.</p>
-<h2 id="usage">Usage</h2>
-<p>To release this repository yourself, you can use the <strong>Pandoc</strong> tool. This tool will allow you to convert the records into a docx file or an HTML document.</p>
-<p>You can find the instructions to install this tool <a href="https://pandoc.org/installing.html">here</a></p>
+<p><strong>Le tue proposte di contributo verranno esaminate da CNIL prima della pubblicazione</strong>. La versione web della Guida al GDPR per sviluppatori sarà aggiornata regolarmente.</p>
+<h2 id="uso">Uso</h2>
+<p>Per rilasciare tu stesso una copia di questo repository, puoi usare <strong>Pandoc</strong>. Questo strumento di aiuta a convertire le schede in un unico documento docx, odt o HTML.</p>
+<p>Puoi trovare le istruzioni su come installare Pandoc <a href="https://pandoc.org/installing.html">qui</a></p>
 <ul>
-<li><strong>To generate a .docx file</strong>:</li>
+<li><strong>Per generare un file .docx</strong>:</li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> -s --toc --toc-depth=1 -o Guide_RGPD_developper.docx [0-9][0-9]*.md</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">pandoc</span> -s --toc --toc-depth=1 -o Guide_GDPR_sviluppatori.docx [0-9][0-9]*.md</a></code></pre></div>
 <ul>
-<li><strong>To generate an .html file</strong>:</li>
+<li><strong>Per generare un file .odt</strong>:</li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> -s --template=<span class="st">&quot;templates/mytemplate.html&quot;</span> -H templates/pandoc.css -o index.html README.md [0-9][0-9]*.md</code></pre>
-<h1 id="sheet-n0-develop-in-compliance-with-the-gdpr">Sheet n°0: Develop in compliance with the GDPR</h1>
-<h4 id="whether-you-work-alone-are-part-of-a-team-developing-a-project-manage-a-development-team-or-are-a-service-provider-carrying-out-developments-for-third-parties-it-is-essential-to-ensure-that-user-data-and-all-personal-data-processing-are-suffisiently-protected-throughout-the-lifecycle-of-the-project.">Whether you work alone, are part of a team developing a project, manage a development team, or are a service provider carrying out developments for third parties, it is essential to ensure that user data and all personal data processing are suffisiently protected throughout the lifecycle of the project.</h4>
-<p>The following steps will help you in the developing privacy-friendly applications or websites:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Be aware of the GDPR core principles</strong>. If you work in a team, we recommend that you identify a person responsible for monitoring compliance. If your company has a Data Protection Officer (DPO), then that person is a key asset in <a href="https://www.cnil.fr/sites/default/files/atoms/files/guidelines_on_dpos_5_april_2017.pdf">understanding and meeting the GDPR obligations</a>. The appointment of a DPO may also be mandatory in some cases, for example if your programs or applications process so-called &quot;sensitive&quot; data (see <a href="#Sheet_n°1:_Identify_personal_data">examples</a>) on a large scale or conduct regular and systematic monitoring on a large scale.</p></li>
-<li><p><strong>Map and categorize the data and processing in your system</strong>. Accurately mapping the data processing performed by your program or application will help you ensuring that they comply with legal requirements. Keeping a <a href="https://www.cnil.fr/en/record-processing-activities">record of processing activities</a> (an example of which can be found on the <a href="https://www.cnil.fr/sites/default/files/atoms/files/record-processing-activities.ods">CNIL website</a>), allows you to have an overall view of these data, and to identify and prioritize the associated risks. Indeed, personal data may be present in unexpected places such as in server logs, cache files, Excel files, etc., and may be stored in a number of different places. Such record-keeping is mandatory in most cases.</p></li>
-<li><p><strong>Prioritize the required actions</strong>. On the basis of the data processing registry, identify the required actions to comply with the obligations of the GDPR in advance of the development and prioritize the attention points with regard to the risks for the data subjects by the processing. These points of attention concern in particular <a href="#Sheet_n°7:_Minimize_the_data_collection">the necessity and types of data collected and processed</a> by your software, <a href="#Sheet_n°15:_Take_into_account_the_legal_basis_in_the_technical_implementation">the legal basis</a> on which your data processing operations are based, <a href="#Sheet_n°12:_Inform%20users">the information mentions</a> of your software or application, <a href="#Sheet_n°5_:_Make_an_informed_choice_of_its_architecture">the contractual clauses</a> binding you to your contractors, the terms and conditions for <a href="#Sheet_n°13:_Prepare_for_the_exercise_of_people_rights">exercising rights</a>, the measures implemented to <a href="#Sheet_n°6:_Secure_your_websites,_applications_and_servers">secure your processing</a>.</p></li>
-<li><p><strong>Manage the risks</strong>. When you identify that a processing of personal data is likely to create high risks for data subjects, make sure that you manage those risks appropriately in the context. A <a href="https://www.cnil.fr/en/privacy-impact-assessment-pia">Privacy Impact Assessment (PIA)</a> can help you manage those risks. The CNIL has developed a <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-1-en-methodology.pdf">method</a>, <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf">model documents</a> and a <a href="https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment">tool</a> that will help you to identify those risks, as well as a <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-3-en-knowledgebases.pdf">catalogue of good practices</a> that will assist you in implementing measures to address the identified risks. Furthermore, a privacy impact assessment is mandatory for all processing operations that are likely to create high risks to the rights and freedoms of data subjects. The CNIL proposes, on its <a href="https://www.cnil.fr/sites/default/files/atoms/files/liste-traitements-aipd-requise.pdf">website</a>, a list of types of processing operations for which a DPA is required or not.</p></li>
-<li><p><strong>put in place internal processes</strong> to ensure compliance during all development stages, ensure that internal procedures guarantee that data protection is taken into account in all aspects of your project and into all events that may occur (e.g. security breach, requests for rectification or access fulfillment, modification of data collected, change of provider, data breach, etc.). The requirements of the <a href="https://www.cnil.fr/sites/default/files/typo/document/CNIL_Privacy_Seal-Governance-EN.pdf">governance label</a> (even if this one no longer granted by the CNIL since the entry into force of the GDPR) can constitute a useful basis of inspiration to help you set up the necessary organization.</p></li>
-<li><p><strong>Document developments compliance</strong> to prove your compliance with the GDPR at all times: the actions performed and the documents produced at each stage of development must be mastered. This implies in particular a regular review and update of the documentation of your developments so that it is constantly consistent with the features deployed on your program.</p></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">pandoc</span> -s --toc --toc-depth=1 -o Guide_GDPR_sviluppatori.odt [0-9][0-9]*.md</a></code></pre></div>
+<ul>
+<li><strong>To generare un file .html file</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">pandoc</span> -s --template=<span class="st">&quot;templates/mytemplate.html&quot;</span> -H templates/pandoc.css -o index.html README.md [0-9][0-9]*.md</a></code></pre></div>
+<h1 id="scheda-n0-sviluppa-rispondendo-al-gdpr">Scheda n°0: Sviluppa rispondendo al GDPR</h1>
+<h4 id="sia-che-tu-lavori-da-solo-che-tu-sia-parte-di-un-gruppo-di-progetto-che-tu-gestisca-un-gruppo-di-sviluppatori-o-che-tu-sia-un-fornitore-di-servizi-che-sviluppa-per-conto-terzi-è-essenziale-che-tu-ti-assicuri-che-i-dati-degli-utenti-e-tutti-i-trattamenti-di-dati-personali-siano-sufficientemente-protetti-durante-tutto-il-ciclo-di-vita-del-progetto.">Sia che tu lavori da solo, che tu sia parte di un gruppo di progetto, che tu gestisca un gruppo di sviluppatori, o che tu sia un fornitore di servizi che sviluppa per conto terzi, è essenziale che tu ti assicuri che i dati degli utenti e tutti i trattamenti di dati personali siano sufficientemente protetti durante tutto il ciclo di vita del progetto.</h4>
+<p>Questi passi ti aiuteranno a sviluppare applicativi e siti web che siano privacy-friendly:</p>
+<ol type="1">
+<li><strong>Sii consapevole dei principi cardine del GDPR</strong>. Se lavori in un team, raccomandiamo che tu identifichi una persona responsabile di monitorare la compliance. Se la tua azienda ha un RPD/DPO (Responsabile della Protezione Dati/Data Protection Officer) allora quella persona è una risorsa fondamentale per <a href="https://www.cnil.fr/sites/default/files/atoms/files/guidelines_on_dpos_5_april_2017.pdf">comprendere e rispondere agli obblighi del GDPR</a>. La nomina di un RPD in alcuni casi potrebbe essere obbligatoria, per esempio se i tuoi programmi o le tue app trattano dati cosiddetti “particolari” (vedi <a href="#Scheda_n°1:_Individuare%20i%20dati%20personali">esempi</a>) su larga scala o se effettuano monitoraggi regolari e sistematici su larga scala.</li>
+<li><strong>Mappa e categorizza i dati e i trattamenti nel tuo sistema</strong>. Una mappatura accurata dei trattamenti effettuati dal tuo programma o app ti aiuterà a garantire che rispondano ai requisiti di legge. Mantenere un <a href="https://www.cnil.fr/en/record-processing-activities">registro delle attività di trattamento</a> (un esempio lo puoi trovare sul <a href="https://www.cnil.fr/sites/default/files/atoms/files/record-processing-activities.ods">sito di CNIL</a>) ti permette di avere una visione d’insieme di questi dati, e di individuare e prioritizzare i rischi associati. Peraltro, dati personali potrebbero essere presenti in posti inattesi come server log, file di cache, file Excel, ecc., a potrebbero essere archiviati in una quantità di luoghi diversi. Nella maggior parte, la tenuta di un registro di questo tipo è obbligatoria.</li>
+<li><strong>Prioritizza le azioni necessarie</strong>. Sulla base del registro delle attività di trattamento, identifica prima dello sviluppo le azioni necessarie per rispondere agli obblighi del GPDR e prioritizza i punti di attenzione relativi ai rischi per gli interessati dal trattamento. Questi punti di attenzione riguardano in particolare <a href="#Sheet_n°7:_Minimize_the_data_collection">la necessità e i tipi di dati raccolti e trattati</a> dal tuo software, <a href="#Sheet_n°15:_Take_into_account_the_legal_basis_in_the_technical_implementation">le basi giuridiche</a> su cui si basano le tue operazioni di trattamento, <a href="#Sheet_n°12:_Inform%20users">le informative</a> del tuo software o app, <a href="#Sheet_n°5_:_Make_an_informed_choice_of_its_architecture">le clausole contrattuali</a> che ti legano ai tuoi fornitori, i termini e le condizioni per <a href="#Sheet_n°13:_Prepare_for_the_exercise_of_people_rights">esercitare i diritti</a>, e le misure implementate per <a href="#Sheet_n°6:_Secure_your_websites,_applications_and_servers">la sicurezza dei trattamenti</a>.</li>
+<li><strong>Gestisci i rischi</strong>. Quando determini che un trattamento di dati personali può creare rischi elevati per gli interessati, assicurati di gestire i rischi in modo appropriato al contesto. Un <a href="https://www.cnil.fr/en/privacy-impact-assessment-pia">Privacy Impact Assessment (PIA)</a> può aiutarti a gestirli. Lo CNIL ha sviluppato un <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-1-en-methodology.pdf">metodo</a>, dei <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf">modelli di documento</a> e un <a href="https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment">tool</a> che ti aiuteranno a individuare i rischi nonché un <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-3-en-knowledgebases.pdf">catalogo di buone pratiche</a> che ti assisterà nella implementazione delle misure per rispondere ai rischi che avrai identificato. Inoltre, un Privacy Impact Assessment è obbligatorio per tutti quei trattamenti che possono creare rischi gravi peri diritti e le libertà degli interessati. Lo CNIL propone, sul suo <a href="https://www.cnil.fr/sites/default/files/atoms/files/liste-traitements-aipd-requise.pdf">sito</a>, un elenco dei tipi di trattamento per i quali un Privacy Impact Assessment è obbligatorio.</li>
+<li><strong>Attiva dei processi interni</strong> per garantire la compliance durante tutte le fasi dello sviluppo, assicurare che ci siano procedure interne per garantire che la protezione dei dati sia tenuta in conto in tutti gli aspetti del progetto e a fronte di qualsiasi evento possa verificarsi (ad es. falla di sicurezza, risposta a richieste di rettifica o di accesso, modifica dei dati raccolti, cambio di fornitore, trafugamento di dati, ecc.). I requisiti alla base dell’<a href="https://www.cnil.fr/sites/default/files/typo/document/CNIL_Privacy_Seal-Governance-EN.pdf">etichetta di governance</a> (anche se non viene più rilasciata da CNIL dopo l’entrata in vigore del GDPR)possono costituire una utile base per aiutarti a definire le necessarie misure organizzative.</li>
+<li><strong>Documenta la compliance dello sviluppo</strong> per dimostrare in ogni momento la tua compliance al GDPR: ci deve essere piena consapevolezza delle azioni compiute e dei documenti prodotti a ciascuno stadio dello sviluppo. Questo implica in particolare la periodica revisione e l’aggiornamento della documentazione così da renderla sempre consistente con le caratteristiche del tuo programma.</li>
 </ol>
-<p>The CNIL website provides numerous practical files which will assist you in setting up law-abiding treatments according to your sector of activity.</p>
-<h1 id="sheet-n1-identify-personal-data">Sheet n°1: Identify personal data</h1>
-<h4 id="understanding-the-notions-of-personal-data-purpose-and-processing-is-essential-for-the-development-of-law-enforcement-and-user-data.-in-particular-be-careful-not-to-confuse-anonymisation-and-pseudonymization-which-have-very-precise-definitions-in-the-gdpr.">Understanding the notions of &quot;personal data&quot;, &quot;purpose&quot; and &quot;processing&quot; is essential for the development of law enforcement and user data. In particular, be careful not to confuse &quot;anonymisation&quot; and &quot;pseudonymization&quot;, which have very precise definitions in the GDPR.</h4>
-<h2 id="definition">Definition</h2>
+<p>Il sito di CNIL fornisce numerosi file pratici che ti assisteranno, a seconda del tuo settore di attività, nella definizione di trattamenti dati rispondenti alla legge.</p>
+<h1 id="scheda-n1-individua-i-dati-personali">Scheda n°1: Individua i dati personali</h1>
+<h4 id="comprendere-i-concetti-di-dati-personali-scopo-e-trattamento-è-essenziale-per-sviluppare-trattamenti-rispondenti-ai-requisiti-di-legge.-in-particolare-stai-attento-a-non-confondere-anonimizzazione-e-pseudonimizzazione-che-sono-definiti-con-molta-precisione-nel-gdpr.">Comprendere i concetti di “dati personali”, “scopo” e “trattamento” è essenziale per sviluppare trattamenti rispondenti ai requisiti di legge. In particolare, stai attento a non confondere “anonimizzazione” e “pseudonimizzazione”, che sono definiti con molta precisione nel GDPR.</h4>
+<h2 id="definizione">Definizione</h2>
 <ul>
-<li><p>The notion of <strong>personal data</strong> is defined in the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679">General Data Protection Regulation</a> (GDPR) as &quot;<a href="https://www.cnil.fr/en/personal-data-definition">any information relating to an identified or identifiable natural person (referred to as &quot;data subject&quot;)</a>&quot;. It covers a broad scope that includes both directly identifying data (e.g. first and last name) and indirectly identifying data (e.g. telephone number, license plate, terminal identifier, etc.).</p></li>
-<li><p>Any operation on this type of data (collection, recording, transmission, modification, dissemination, etc.) constitutes <strong>processing within the meaning of the GDPR</strong> and must therefore meet the requirements laid down by that regulation. Such processing operations must be lawful and have a specified purpose. The personal data collected and processed must be relevant and limited to what is strictly necessary to achieve the purpose.</p></li>
+<li>Il concetto di <strong>dati personali</strong> è definito nel <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32016R0679&amp;from=IT">Regolamento Generale per la Protezione dei Dati Personali</a> come <em>“qualsiasi informazione riguardante una persona fisica identificata o identificabile («interessato»)”</em>. La definizione copre un àmbito vasto che include tanto dati che identificano direttamente (ad es. nome e cognome) quanto dati che identificano indirettamente (ad es, numero di telefono, targa dell’auto, identificativo del terminale, ecc.).</li>
+<li>Qualsiasi operazione su dati di questo tipo (raccolta, registrazione, trasmissione, modifica, disseminazione, ecc.) costituisce <strong>trattamento ai sensi dei GDPR</strong> e deve quindi rispondere ai requisiti definiti dalla legge. Queste operazioni di trattamento devono essere lecite e avere una finalità specificata. I dati personali raccolti e trattati devono essere rilevanti e limitati a quelli strettamente necessari per raggiungere la finalità prefissata.</li>
 </ul>
-<h2 id="examples-of-personal-data">Examples of personal data</h2>
+<h2 id="esempi-di-dati-personali">Esempi di dati personali</h2>
 <ul>
-<li>Where they relate to natural persons, <strong>the following data are personal data</strong>:
+<li>Quando si riferiscono a persone fisiche, <strong>i seguenti dati sono dati personali</strong>:
 <ul>
-<li>Surname, first name, pseudonym, date of birth;</li>
-<li>photos, sound recordings of voices;</li>
-<li>fixed or mobile telephone number, postal address, email address;</li>
-<li>IP address, computer connection identifier or cookie identifier;</li>
-<li>Fingerprint, palm or venous network of the hand, retinal print;</li>
-<li>License plate number, social security number, ID number;</li>
-<li>Application usage data, comments, etc...</li>
+<li>Cognome, nome, pseudonimo, data di nascita</li>
+<li>foto e registrazioni della voce</li>
+<li>numero di telefono fisso o mobile, indirizzo postale, indirizzo email</li>
+<li>indirizzo IP, identificatore di connessione telematica o cookie identificativo</li>
+<li>Impronta digitale, impronta del palmo o reticolo venoso della mano, impronta retinica</li>
+<li>Targa automobilistica, codice fiscale, numero di matricola</li>
+<li>Dati di utilizzo dell’applicazione, commenti, ecc.</li>
 </ul></li>
-<li><strong>Identification of natural persons can be carried out</strong>:
+<li><strong>L’identificazione di persone fisiche si può ottenere</strong>:
 <ul>
-<li>from a single piece of data (examples: surname and first name);</li>
-<li>from crossing of a set of data (example: a woman living at such and such an address, born on such and such a day and member of such and such an association).</li>
+<li>da un singolo dato (esempi: cognome e nome)</li>
+<li>dall’incrocio di insiemi di dati (esempio: una donna che vive a un dato indirizzo, nata in una certa data e membro di una data associazione).</li>
 </ul></li>
-<li><p>Some data are considered <strong>particularly sensitive</strong>. The GDPR prohibits the collection or use of such data, unless, in particular, the data subject has given his/her express consent (active, explicit and preferably written consent, which must be free, specific and informed).</p></li>
-<li><p>These requirements concern the following data:</p>
+<li><p>Alcuni dati sono considerati <strong>particolarmente sensibili</strong>. Il GDPR proibisce la raccolta o l’uso di questi dati a meno che, in particolare, l’interessato abbia dato il proprio consenso (consenso attivo, esplicito e preferibilmente per iscritto, che deve essere libereo, specifico e informato).</p></li>
+<li><p>I requisiti di cui al punto precedente riguardano i seguenti tipi di dati:</p>
 <ul>
-<li>data relating to the <strong>health of individuals</strong>;</li>
-<li>data concerning <strong>sexual life</strong> or <strong>sexual orientation</strong>;</li>
-<li>data revealing an alleged <strong>racial</strong> or <strong>ethnic</strong> origin;</li>
-<li>political opinions, religious beliefs, philosophical beliefs or trade union membership;</li>
-<li><strong>genetic</strong> and <strong>biometric data used for the purpose of uniquely identifying an individual</strong>.</li>
-</ul></li>
-</ul>
-<h2 id="anonymisation-of-personal-data">Anonymisation of personal data</h2>
-<ul>
-<li><p>An <strong>anonymisation process of personal data</strong> aims at making impossible to identify individuals within data sets. It is therefore an irreversible process. When this anonymisation is effective, the data are no longer considered as personal data and the requirements of the GDPR are no longer applicable.</p></li>
-<li><p>By default, we recommend that you <strong>never consider raw datasets as anonymous</strong>. Anonymisation results from processing personal data in order to irreversibly prevent identification, whether by:</p>
-<ul>
-<li><em>singling out</em>: it is not possible to isolate some or all records which identify an individual in the dataset;</li>
-<li><em>linkability</em>: the dataset does not allow to link at least, two records concerning the same data subject or a group of data subjects;</li>
-<li><em>inference</em>: it is not possible to deduce, with significant probability, the value of an attribute from the values of a set of other attributes.</li>
-</ul></li>
-<li><p>These data processing operations imply in most cases a <strong>loss of quality on the produced dataset</strong>. The Article 29 Working Party (Art. 29 WP) <a href="https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf">opinion on anonymisation techniques</a> describes the main anonymisation techniques used today, as well as examples of datasets wrongly considered anonymous. It is important to note that anonymisation techniques have short comings. The choice to anonymize or not the data as well as the selection of an anonymisation technique must be made on a case by case basis according to contexts of use and need (nature of the data, usefulness of the data, risks for people, etc.).</p></li>
-</ul>
-<h2 id="pseudonymization-of-personal-data">Pseudonymization of personal data</h2>
-<ul>
-<li><p><strong>Pseudonymization is a compromise between retaining raw data and producing anonymized datasets</strong>.</p></li>
-<li><p>It refers to the processing of personal data in such a way that <strong>data relating to a natural person can no longer be attributed without additional information</strong>. The GDPR insists that this additional information must be kept separately and be subject to technical and organisational measures to avoid re-identification of data subjects. Unlike anonymisation, pseudonymization can be a reversible process.</p></li>
-<li><p>In practice, a pseudonymization process consists of <strong>replacing directly identifying data (surname, first name, etc.) in a dataset with indirectly identifying data</strong> (alias, number in a filing system, etc.) in order to reduce their sensitivity. They may result from a cryptographic hash of the data of individuals, such as their IP address, user ID, e-mail address.</p></li>
-<li><p>Data resulting from pseudonymization are considered as <strong>personal data and therefore remain subject to the obligations of the DPMR</strong>. However, the European Regulation encourages the use of pseudonymization in the processing of personal data. Moreover, the GDPR considers that pseudonymization makes it possible to reduce the risks for data subjects and to contribute to compliance with the Regulation.</p></li>
-</ul>
-<h1 id="sheet-n2-prepare-your-development">Sheet n°2: Prepare your development</h1>
-<h4 id="the-principles-of-personal-data-protection-must-be-integrated-into-it-developments-from-the-design-phase-onwards-in-order-to-protect-the-privacy-of-the-people-whose-data-you-are-going-to-process-to-give-them-better-control-over-their-data-and-to-limit-errors-losses-unauthorised-modifications-or-misuses-of-their-data-in-applications.">The principles of personal data protection must be integrated into IT developments from the design phase onwards in order to protect the privacy of the people whose data you are going to process, to give them better control over their data and to limit errors, losses, unauthorised modifications or misuses of their data in applications.</h4>
-<h2 id="methodological-choices">Methodological choices</h2>
-<ul>
-<li><p><strong>Put privacy protection at the center of your developments</strong> by adopting a <a href="https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en">Privacy By Design</a> methodology.</p></li>
-<li><p>If you use agile methods for your developments, consider <strong>integrating security at the center of your process</strong>. The ANSSI has made available a guide <a href="https://www.ssi.gouv.fr/uploads/2018/11/guide-securite-numerique-agile-anssi-pa-v1.pdf">&quot;digital security &amp; agility&quot;</a> (in French only) which indicates how to conduct your developments within the framework of an agile method while taking into account the security aspects. Don't hesitate to draw inspiration from it.</p></li>
-<li><p>For any development aimed at the general public, <strong>consider the privacy settings</strong>, and in particular the default settings, such as the characteristics and user content visible by default.</p></li>
-<li><p><strong>Conduct a <a href="https://www.cnil.fr/en/privacy-impact-assessment-pia">Privacy Impact Assessment (PIA)</a></strong>. For <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/accountability-and-governance/data-protection-impact-assessments/">certain processing operations</a> it is mandatory. In other cases it is a good practice that will allow you to identify and deal with all the risks upstream of your developments. The CNIL has a special section on its website and provides a <a href="https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment">free software</a> dedicated to this type of analysis.</p></li>
-</ul>
-<h2 id="technological-choices">Technological choices</h2>
-<h4 id="architecture-and-features">Architecture and features</h4>
-<ul>
-<li><p><strong>Include privacy protection, including data security requirements, at the design stage of the application or service</strong>. These requirements should influence <a href="#Sheet_n°5:_Making_an_informed_choice_of_architecture">architecture choices</a> (e.g. decentralized vs. centralized) or functionality (e.g. short term anonymization, data minimization). The default settings of the application must meet minimum security requirements and comply with the law. For example, the default complexity of passwords must comply at least with the <a href="https://www.cnil.fr/fr/node/23803">CNIL recommendation on passwords</a>.</p></li>
-<li><p><strong>Maintain control of your system</strong>. It is important to keep control of your system, both to ensure proper operation and to guarantee a high level of security. Keeping a system simple allows you to understand precisely how it works and to identify its weak points. If a certain complexity is required, it is advisable to start with a simple, correctly designed and secure system. Then, it is possible to increase the complexity little by little, while continuing to secure the new features that are added.</p></li>
-<li><p><strong>Don't rely on a single line of defense</strong>. In spite of all the steps taken to design a secure system, it may happen that some components added later may not be sufficiently secure. To minimize the risk to end users, it is advisable to defend the system in depth. For example, checking the data entered in an online form is part of the periphery defenses. If this defense is hijacked, database query protection can take over.</p></li>
-</ul>
-<h4 id="tools-and-practices">Tools and practices</h4>
-<ul>
-<li><p><strong>Use programming standards that take into account safety</strong>. Often, lists of standards, best practices or coding guides improving the security of your developments are already available. Ancillary tools can also be integrated into your integrated development environments (&quot;<strong>IDE</strong>&quot;) in order to automatically check that your code complies with the various rules that are part of these standards or good practices. You can easily find lists of good practices for your favourite programming language on the Internet. For example <a href="https://wiki.sei.cmu.edu/confluence/display/seccode/SEI+CERT+Coding+Standards">here</a> for C, C++ or Java. For web application development, specific good practice guides exist, such as those published by <a href="https://www.owasp.org">OWASP</a>.</p></li>
-<li><strong>The technological choices are critical.</strong> A few parameters need to be taken into account:
-<ul>
-<li>Depending on the field of application or functionality developed, one language or technology may be more appropriate than another.</li>
-<li>Time-tested languages and technologies are safer. They have, in general, been audited to correct the most known vulnerabilities. However, you should be careful to use the latest versions of each of the technology building blocks you will be using.</li>
-<li>You must avoid coding your final solution in a language you have just learned and not yet mastered. Otherwise, you expose yourself to an increased risk of a security flaw due to lack of experience.</li>
-</ul></li>
-<li><p><strong>Set up a secure development environment that allows versioning of the code</strong> by following the <a href="#Sheet_n°3:_Secure_your_development_environment">dedicated sheet</a> in this guide.</p></li>
-</ul>
-<h1 id="sheet-n3-secure-your-development-environment">Sheet n°3: Secure your development environment</h1>
-<h4 id="the-security-of-production-development-and-continuous-integration-servers-as-well-as-developer-workstations-must-be-a-priority-because-they-centralize-access-to-a-large-amount-of-data.">The security of production, development and continuous integration servers as well as developer workstations must be a priority because they centralize access to a large amount of data.</h4>
-<h2 id="assess-your-risks-and-adopt-the-appropriate-security-measures">Assess your risks and adopt the appropriate security measures</h2>
-<ul>
-<li><p><strong>Assess the risks</strong> in the tools and processes used for your developments. Make an inventory of your existing security measures and define an action plan to improve your risk coverage. Appoint a person responsible for its implementation.</p></li>
-<li><p>Consider the risks on all the tools you use, including risks related to SaaS (Software as a Service) and collaborative tools in the cloud (such as <a href="https://slack.com">Slack</a>, <a href="https://trello.com">Trello</a>, <a href="https://github.com">GitHub</a>, etc.).</p></li>
-</ul>
-<h2 id="secure-your-servers-and-workstations-in-a-homogeneous-and-reproducible-way">Secure your servers and workstations in a homogeneous and reproducible way</h2>
-<ul>
-<li><p>Lists of <strong>recommendations</strong> concerning the security of servers, workstations and internal networks are available in the <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf">sheets n° 5 to 8</a> of the <strong>security of personal data guide</strong> of the CNIL.</p></li>
-<li><p>Write a <strong>document listing those measures and explaining their configuration</strong> to ensure that security measures are implemented uniformly on servers and workstations. In order to reduce the workload, <strong>configuration management tools</strong>, such as <a href="https://github.com/ansible/ansible">Ansible</a>, <a href="https://github.com/puppetlabs/puppet">Puppet</a> or <a href="https://github.com/chef/chef">Chef</a>, can be used.</p></li>
-<li><p>Update servers and workstations, if possible automatically. You can set up a watchlist of the most important vulnerabilities, for example the <a href="https://nvd.nist.gov/vuln/data-feeds">NVD Data Feeds</a>.</p></li>
-</ul>
-<h2 id="put-special-emphasis-on-access-management-and-traceability-of-operations">Put special emphasis on access management and traceability of operations</h2>
-<ul>
-<li><p>Remember to document the management of your <strong>SSH keys</strong> (use of state of the art cryptography and key length algorithms, protection of private keys with a passphrase, key rotation). For examples of good practice, see <a href="https://www.ssi.gouv.fr/uploads/2014/01/NT_OpenSSH_en.pdf">the document on the secure use of (open)SSH</a>.</p></li>
-<li><p>Encourage strong authentication on the services used by the development team.</p></li>
-<li><p><strong>Trace</strong> access to your machines and, if possible, implement <strong>automated log analysis</strong>. In order to keep reliable traces, the use of generic accounts is to be avoided.</p></li>
-</ul>
-<h1 id="sheet-n4-manage-your-source-code">Sheet n°4: Manage your source code</h1>
-<h4 id="whatever-the-size-of-your-project-it-is-highly-recommended-to-use-a-source-code-management-tool-such-as-a-version-control-system-to-track-its-different-versions-over-time.">Whatever the size of your project, it is highly recommended to use a source code management tool, such as a <em>version control system</em>, to track its different versions over time.</h4>
-<h2 id="set-up-your-version-control-system-efficiently-thinking-about-its-security.">Set up your version control system efficiently, thinking about its security.</h2>
-<ul>
-<li><p>A version control system is a software program that allows you to store <strong>all your source code and associated files</strong>, while keeping the <strong>chronology of all changes</strong> that have been made. A simple FTP server is not a version control system.</p></li>
-<li><p>Set up your environment correctly using the features offered by your version control system. It is recommended that you implement strong <strong>authentication</strong> and/or <strong>authentication with SSH keys</strong> at the beginning of your project.</p></li>
-<li><p>In addition, assign <em>levels of access</em> to your project to the users of your version control system and define for each level the corresponding <strong>permissions</strong> (for example, a &quot;guest&quot; level with limited read rights, a &quot;developer&quot; level with write rights, etc.).</p></li>
-<li><p>Make regular <strong>backups</strong> of your source code management system. In particular, remember to back up your main server where all changes are saved.</p></li>
-<li><p>Set up development procedures to work efficiently even if <strong>several people are developing at the same time</strong>. For example, you may decide not to work on the same branch (<em>master</em>), but to set up feature-based branches, which will be merged into the main branch as development progresses. Such development strategies are already well documented, for example in <a href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a>. In addition, some version control systems offer to set up <strong>protected branches</strong> that prevent unauthorized changes to the files in these branches.</p></li>
-</ul>
-<h2 id="be-aware-of-your-source-code-content.">Be aware of your source code content.</h2>
-<ul>
-<li><p>Implement <strong>code quality metrics tools</strong> that will scan your code as soon as it is <em>committed</em> to check its good quality. You can also add scripts to check these metrics in the <a href="https://git-scm.com/book/uz/v2/Customizing-Git-Git-Hooks">version control system configuration</a>: the <em>commit</em> will be cancelled if the source code is not of sufficient quality.</p></li>
-<li>Keep your secrets and passwords out of your source code repository:
-<ul>
-<li>in separate <strong>files, which have not been <em>committed</em></strong>. Remember to use special files from your version control system (such as <em>.gitignore</em> for <em>Git</em>) so that you don't <em>commit</em> sensitive files by mistake.</li>
-<li>in <strong>environment variables</strong>, take care to check that environment variables are not accidentally written to <em>logs</em> or displayed when an application error occurs.</li>
-<li>using <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-managing-secrets-safely-with-version-control-systems#using-configuration-management-systems-for-secret-management"><strong>specific secret or configuration management software</strong></a>.</li>
+<li>dati relativi alla <strong>salute degli individui</strong></li>
+<li>dati relativi alla <strong>vita sessuale</strong> o <strong>all’orientamento sessuale</strong></li>
+<li>dati che possono rivelare una (anche supposta) origine <strong>razziale</strong> o <strong>etnica</strong></li>
+<li>opinioni politiche, credo religiosi, convinzioni filosofiche o appartenenza a sindacati</li>
+<li>dati <strong>genetici</strong> e <strong>biometrici usati allo scopo di identificare in modo univoco un individuo</strong>.</li>
 </ul></li>
 </ul>
-<p>Finally, if you need to include such data in your repository, consider <strong>automatically encrypting/decrypting</strong> the files using a <em>plugin</em> from your version control system (e.g. <a href="https://github.com/AGWA/git-crypt"><em>git-crypt</em></a>).</p>
+<h2 id="anonimizzazione-di-dati-personali">Anonimizzazione di dati personali</h2>
 <ul>
-<li><p>After a <em>commit</em> that contains personal or other critical data, don't forget to <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">purge</a> <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository#purging-a-file-from-your-repositorys-history">completely</a> the source code repository: even after modification, the data may still be available in your repository history.</p></li>
-<li><p>Be careful before <strong>publishing your source code online</strong>. Review <strong>its entire contents</strong> to make sure that no personal data, passwords or other secrets are present, including the entire change history.</p></li>
+<li><p>Un <strong>processo di anonimizzazione di dati personali</strong> mira a rendere impossibile l’identificazione degli individui appartenenti al dataset. È pertanto un processo irreversibile. Quando questa anonimizzazione riesce, i dati non sono più considerati dati personali e le prescrizioni del GDPR non si applicano più.</p></li>
+<li>Di default, ti raccomandiamo di <strong>non considerare mai anonimi dei dataset non trattati.</strong> L’anonimizzazione è il risultato del trattamento di dati personali al fine di prevenire in modo irreversibile l’identificazione, in qualunque modo la si tenti:</li>
+<li><em>individuazione</em>: non è possibile isolare uno o tutti i record del dataset che identificano un individuo
+<ul>
+<li><em>collegabilità</em>: il dataset non consente di collegare due o più record che si riferiscono a uno stesso interessato o a uno stesso gruppo di interessati</li>
+<li><em>inferenza</em>: non è possibile dedurre, con probabilità significativa, il valore di un attributo a partire dai valori di un insieme di altri attributi.</li>
+</ul></li>
+<li><p>queste operazioni di trattamento implicano nella maggior parte dei casi una <strong>perdità di qualità del dataset risultante</strong>. L’<a href="https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf">opinione sulle tecniche di anonimizzazione</a> dell Gruppo di Lavoro Articolo 29 (Art. 29 WP) descrive le principali tecniche di anonimizzazione attualmente in uso, nonché esempi di dataset erroneamente considerati anonimi. È importante notare che le tecniche di anonimizzazione hanno delle controindicazioni. La scelta se anonimizzare o meno i dati, nonché la scelta della particolare tecnica di anonimizzazione deve essere fatta caso per caso, sulla base del particolare contesto, dell’uso e delle necessità (natura dei dati, utilità dei dati, rischi per le persone, ecc.) .</p></li>
 </ul>
-<h2 id="examples-of-tools">Examples of tools</h2>
+<h2 id="pseudonimizzazione-di-dati-personali">Pseudonimizzazione di dati personali</h2>
 <ul>
-<li><p>Unlike tools such as <a href="https://subversion.apache.org/">Subversion</a>, which need a central server to run, the main version control systems (<a href="https://git-scm.com/">Git</a>, <a href="https://www.mercurial-scm.org/">Mercurial</a> for example) are <strong>decentralized</strong>.</p></li>
-<li><p>For most of these tools, a <strong>web interface and related tools</strong> (bug management, wiki for your documentation, etc.) are provided. These solutions can either be accessible via the internet (<a href="https://github.com/">GitHub</a>, <a href="https://bitbucket.org/">Bitbucket</a>, etc.), or they can be integrated into your own servers.</p></li>
+<li><p><strong>La pseudonimizzazione è un compromesso fra mantenere i dati nella loro forma originale e produrre dataset anonimizzati</strong>.</p></li>
+<li><p>Si riferisce al trattare i dati personali in modo che <strong>dati che si riferiscono a una persona fisica non possano più essere attribuiti ad essa senza l’uso di informazioni aggiuntive</strong>. Il GDPR insiste che tali informazioni aggiuntive debbano essere conservate separatamente e soggette a misure tecniche e organizzative volte a evitare la re-identificazione degli interessati. A differenza dell’anonimizzazione, la pseudonimizzazione può essere un processo reversibile.</p></li>
+<li><p>In pratica, un processo di pseudonimizzazione consiste nel <strong>sostituire in un dataset i dati immediatamente identificanti (cognome, nome, ecc.) con dati indirettamente identificanti</strong> (pseudonimo, numero di pratica, ecc.) allo scopo di ridurre la loro sensibilità. Questi dati indiretttamente identificanti potrebbero essere il risultato di un hash crittografico dei dati degli individui, come l’indirizzo IP, la user ID, l’indirizzo e-mail.</p></li>
+<li><p>I dati risultanti dalla pseudonimizzazione sono considerati come <strong>dati personali e pertanto soggetti alle prescrizioni del GDPR</strong>. Ad ogni modo, il Regolamento Europeo incoraggia l’uso della pseudonimizzazione nel trattamento di dati personali. Inoltre il GDPR ritiene che la pseudonimizzazione renda possibile ridure il rischio per gli interessati e contribuisca alla compliance con il Regolamento.</p></li>
 </ul>
-<h1 id="sheet-n5-make-an-informed-choice-of-architecture">Sheet n°5: Make an informed choice of architecture</h1>
-<h4 id="when-designing-the-architecture-of-your-application-you-must-identify-personal-data-that-will-be-collected-and-define-a-path-and-life-cycle-for-each-of-them.-the-choice-of-supporting-assets-local-storage-server-cloud-service-is-a-crucial-step-which-must-be-adapted-to-your-needs-but-also-to-your-technical-knowledge.-the-registry-and-conduction-a-privacy-impact-assesment-can-assist-you-in-this-choice.">When designing the architecture of your application, you must identify personal data that will be collected and define a path and life cycle for each of them. The choice of supporting assets (local storage, server, cloud service) is a crucial step, which must be adapted to your needs, but also to your technical knowledge. The registry and conduction a privacy impact assesment can assist you in this choice.</h4>
-<h2 id="examining-life-cycle-of-data-and-processes-from-collection-to-erasure">Examining life cycle of data and processes, from collection to erasure</h2>
+<h1 id="scheda-n2-prepara-lo-sviluppo">Scheda n°2: Prepara lo sviluppo</h1>
+<h4 id="i-principi-della-protezione-dei-dati-personali-devono-essere-integrati-negli-sviluppi-it-dalla-fase-di-design-in-poi-al-fine-di-proteggere-la-privacy-delle-persone-i-cui-dati-verranno-trattati-per-dare-loro-un-maggior-controllo-sui-loro-dati-e-per-limitare-errori-perdite-modifiche-non-autorizzate-o-abusi-dei-loro-dati-nelle-applicazioni.">I principi della protezione dei dati personali devono essere integrati negli sviluppi IT dalla fase di design in poi, al fine di proteggere la privacy delle persone i cui dati verranno trattati, per dare loro un maggior controllo sui loro dati e per limitare errori, perdite, modifiche non autorizzate o abusi dei loro dati nelle applicazioni.</h4>
+<h2 id="scelte-metodologiche">Scelte metodologiche</h2>
 <ul>
-<li><p>Represent and describe how the product generally works before starting your project, with a diagram of data flows and a detailed description of the processes carried out.</p></li>
-<li><p>When data is only <strong>stored on the user's terminal</strong> (local storage) or remains <strong>confined on communication networks under the control of the user</strong> (e.g. Wi-Fi or other local network), the main point of attention is data security. The duration for which data is stored and the actual deletion should be determined by the individuals.</p></li>
-<li><p><strong>When the data transits through online services</strong>, the choice of hosting the data yourself or using a service provider must be made according to your security knowledge and the expected quality of service. Recognized cloud offerings may offer higher levels of security. However, they generate new risks that need to be mastered. <a href="https://www.cnil.fr/sites/default/files/typo/document/Recommendations_for_companies_planning_to_use_Cloud_computing_services.pdf">Recommendations for companies planning to use Cloud computing services</a> can guide at this selection stage.</p></li>
+<li><p><strong>Metti la protezione della privacy al centro dei tuoi sviluppi</strong> adottando una metodologia di <a href="https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en">Privacy By Design</a>.</p></li>
+<li><p>Se nello sviluppo usi metodi agili, considera di <strong>integrare la sicurezza al centro dei processi</strong>. ANSSI rende disponibile una guida <a href="https://www.ssi.gouv.fr/uploads/2018/11/guide-securite-numerique-agile-anssi-pa-v1.pdf">“digital security &amp; agility”</a> (solo in Francese) che indica come portare avanti gli sviluppi nell’ambito di un framework agile tenendo in conto gli aspetti di sicurezza. Prendila come fonte di ispirazione.</p></li>
+<li><p>Per ogni sviluppo rivolto al grande pubblico, <strong>considera i setting di sicurezza</strong> e in particolare i valori di default come, per esempio, le caratteristiche e i contenuti utente visibili per default.</p></li>
+<li><p><strong>Conduci un <a href="https://www.cnil.fr/en/privacy-impact-assessment-pia">Privacy Impact Assessment (PIA)</a></strong>. Per <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/accountability-and-governance/data-protection-impact-assessments/">alcune operazioni di trrattamento</a> è obbligatorio. In altri casi costituisce una buona pratica che ti permetterà di individuare e affrontare i rischi a valle del tuo sviluppo. Lo CNIL ha una sezione speciale del proprio sito e fornisce un <a href="https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment">software libero</a> dedicato a questo tipo di analisi.</p></li>
 </ul>
-<h2 id="in-case-of-use-of-external-hosting">In case of use of external hosting</h2>
+<h2 id="scelte-tecnologiche">Scelte tecnologiche</h2>
+<h4 id="architettura-e-caratteristiche">Architettura e caratteristiche</h4>
 <ul>
-<li><p><strong>Choose a service provider that ensures appropriate security and confidentiality measures and is sufficiently transparent</strong>.</p></li>
-<li><p><strong>Make sure you know the geographical location of the servers that will host your data</strong>. You may be required to transfer data outside the European Union (EU) and the European Economic Area (EEA). While data can move freely within the EU/EEA, transfers outside the EU/EEA are possible, provided that sufficient and appropriate level of data protection is ensured. The CNIL provides an on-site map showing the <a href="https://www.cnil.fr/en/data-protection-around-the-world">different levels of data protection in countries around the world</a>.</p></li>
-<li><p><strong>If you need to host health data</strong>, make sure that provider used is <a href="https://esante.gouv.fr/labels-certifications/hds/liste-des-herbergeurs-certifies">certified</a> or <a href="https://esante.gouv.fr/labels-certifications/hds/liste-des-herbergeurs-agrees">approved</a> for this activity.</p></li>
-<li>Other points to be aware of include:
+<li><strong>Includi la protezione della privacy, inclusi i requisiti per la sicurezza dei dati, nella fase di design dell’applicazione o del servizio.</strong> Questi requisiti dovrebbero influenzare le <a href="#Scheda_n°5:_Fare_una_scelta_informata_di_architettura">scelte architetturali</a> (ad es. decentralizzato vs. centralizzato) o le funzionalità (ad es. anonimizzazione a breve termine, minimizzazione dei dati). Le regolazioni di default dell’applicazione devono almeno rispondere ai requisiti minimi di sicurezza e rispondere ai requisiti di legge. Per esempio, la complessità di default delle password deve rispondere come minimo alle <a href="https://www.cnil.fr/fr/node/23803">raccomandazioni CNIL sulle password</a></li>
+<li><strong>Mantieni il controllo del tuo sistema</strong>. È importante che tu mantenga il controllo del tuo sistema, tanto per assicurarne il corretto funzionamento che per garantire un alto livello di sicurezza. Mantenere il tuo sistema semplice ti permette di comprendere con precisione come funziona e di individuarne i punti deboli. Se una certa complessità è necessaria, è consigliabile partire da un sistema semplice, sicuro e progettato correttamente. Su questa base è possibile aumentare la complessità passo a passo, mettendo via via in sicurezza le nuove funzionalità che vengono aggiunte.</li>
+<li><strong>Non contare su una sola linea di difesa</strong>. Nonostante tutte le misure prese per progettare un sistema sicuro, può sempre accadere che alcune componenti aggiunte in un secondo tempo non siano sufficientemente sicure. Per minimizzare i rischi per gli utenti finali, è suggeribile che il sistema adotti una difesa in profondità. Per esempio, controllare i valori immessi in un modulo online è parte delle difese perimetrali. Se questa difesa viene scavalcata, la protezione delle query al database può prenderne il posto.</li>
+</ul>
+<h4 id="strumenti-e-pratiche">Strumenti e pratiche</h4>
 <ul>
-<li>the existence of an accessible security policy;</li>
-<li>physical security and safety measures at the hosting site;</li>
-<li>data encryption and other processes to ensure that the provider does not have access to the data entrusted to it;</li>
-<li>the management of updates, the management of authorizations, the authentication of personnel and the security of application developments;</li>
-<li>the easy reversibility/portability of data in a structured and commonly used format, on request and at any time.</li>
+<li><strong>Usa standard di programmazione che tengono in conto la sicurezza</strong>. Spesso sono già disponibili liste di standard, buone pratiche o guide di programmazione per migliorare la sicurezza dei tuoi sviluppi. Puoi anche integrare tool aggiuntivi nel tuo ambiente integrato di sviluppo (“<strong>IDE</strong>”) in modo da controllare in automatico che il tuo codice corrisponda alle regole dettate dagli standard e dalle buone pratiche. Su Internet puoi facilmente reperire elenchi di buone pratiche per i tuoi linguaggi di programmazione preferiti. Per esempio <a href="https://wiki.sei.cmu.edu/confluence/display/seccode/SEI+CERT+Coding+Standards">qui</a> per C, C++ o Java. Esistono anche buone pratiche specifiche per lo sviluppo di applicazioni Web, come quelle pubblicate da <a href="https://www.owasp.org">OWASP</a>.</li>
+<li><strong>Le scelte tecnologiche sono critiche</strong>. Alcuni aspetti che devi tenere in conto:
+<ul>
+<li>A seconda del campo di applicazione o della funzionalità sviluppata, uno specifico linguaggio o tecnologia potrebbe essere più appropriato di un altro.</li>
+<li>I linguaggi e le tecnologie più maturi sono più sicuri. In generale, sono stati soggetti a audit per correggere le vulerabilità più note. Ad ogni modo, devi fare attenzione a usare le ultime versioni di ciascun componente tecnologico che userai.</li>
+<li>Devi evitare di scrivere la tua soluzione in un linguaggio che hai appena imparato e non domini ancora completamente. La tua mancanza di esperienza potrebbe esporti a maggiori rischi.</li>
+</ul></li>
+<li><strong>Appronta un ambiente di sviluppo sicuro che ti consenta la gestione delle versioni del codice</strong> seguendo la <a href="#Sheet_n°3:_Secure_your_development_environment">scheda dedicata</a> di questa guida.</li>
+</ul>
+<h1 id="scheda-n3-sviluppa-in-un-ambiente-sicuro">Scheda n°3: Sviluppa in un ambiente sicuro</h1>
+<h4 id="la-sicurezza-dei-server-di-produzione-sviluppo-e-continuous-integration-non-ché-quella-delle-macchine-degli-sviluppatori-deve-essere-una-priorità-perché-centralizzano-laccesso-a-vaste-moli-di-dati.">La sicurezza dei server di produzione, sviluppo e continuous integration, non ché quella delle macchine degli sviluppatori deve essere una priorità, perché centralizzano l’accesso a vaste moli di dati.</h4>
+<h2 id="valuta-i-tuoi-rischi-e-adotta-misure-di-sicurezza-appropriate">Valuta i tuoi rischi e adotta misure di sicurezza appropriate</h2>
+<ul>
+<li><p><strong>Valuta i rischi</strong> degli strumenti e dei processi che usi per lo sviluppo. Fai un inventario delle misure di sicurezza esistenti e definisci un piano d’azione per migliorare la tua copertura dai rischi. Incarica una persona come responsabile della sua implementazione.</p></li>
+<li><p>Considera i rischi per tutti gli strumenti che usi, includi gli strumenti SaaS (Software as a Service) e strumenti collaborativi in cloud (come <a href="https://slack.com">Slack</a>, <a href="https://trello.com">Trello</a>, <a href="https://github.com">GitHub</a>, ecc.).</p></li>
+</ul>
+<h2 id="metti-in-sicurezza-server-e-workstation-in-modo-omogeneo-e-riproducibile">Metti in sicurezza server e workstation in modo omogeneo e riproducibile</h2>
+<ul>
+<li><p>Una lista di raccomandazioni riguardo alla sicurezza di server, workstation e reti interne sono disponibili nelle <a href="https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf">schede dal n° 5 all’8</a> della Guida alla Sicurezza dei dati personali dello CNIL.</p></li>
+<li><p><strong>Redigi un documento che elenchi le misure di sicurezza e ne spieghi la configurazione</strong>, per assicurare che le misure di sicurezza siano implementate uniformemente sia sui server che sulle workstation. Per ridurre il carico di lavoro, puoi usare <strong>strumenti di configuration management</strong> come <a href="https://github.com/ansible/ansible">Ansible</a>, <a href="https://github.com/puppetlabs/puppet">Puppet</a> o<a href="https://github.com/chef/chef">Chef</a>.</p></li>
+<li><p>Aggiorna sempre server e workstation, se possibile in modo automatico. Puoi definire una watchlist delle vulnerabilità più importanti, per esempio gli <a href="https://nvd.nist.gov/vuln/data-feeds">NVD Data Feed</a> del NIST.</p></li>
+</ul>
+<h2 id="poni-particolare-attenzione-alla-gestione-degli-accessi-e-alla-tracciabilità-delle-operazioni">Poni particolare attenzione alla gestione degli accessi e alla tracciabilità delle operazioni</h2>
+<ul>
+<li><p>Ricordati di documentare la gestione delle tue <strong>chiavi SSH</strong> (uso di algoritmi di crittografia e lunghezze delle chiavi allo stato dell’arte, protezioni delle frasi con una password, rotazione delle chiavi). Per esempi di buone pratiche, vedi il <a href="https://www.ssi.gouv.fr/uploads/2014/01/NT_OpenSSH_en.pdf">documento sull’uso siduro di (open)SSH</a>.</p></li>
+<li><p>Incoraggia l’autenticazione forte nei servizi usati dal team di sviluppo.</p></li>
+<li><p><strong>Traccia</strong> gli accessi alle macchine e, se possibile, implementa una <strong>analisi automatica dei log</strong>. Per poter raccogliere tracce affidabili, occorre evitare l’uso di account generici.</p></li>
+</ul>
+<h1 id="scheda-n4-gestisci-il-codice-sorgente">Scheda n°4: Gestisci il codice sorgente</h1>
+<h4 id="qualunque-sia-la-dimensione-del-tuo-progetto-ti-raccomandiamo-fortemente-luso-di-uno-strumento-di-gestione-del-codice-sorgente-come-ad-esempio-un-version-control-system-per-tenere-traccia-delle-differenti-versioni-nel-corso-del-tempo.">Qualunque sia la dimensione del tuo progetto, ti raccomandiamo fortemente l’uso di uno strumento di gestione del codice sorgente, come ad esempio un <em>version control system</em>, per tenere traccia delle differenti versioni nel corso del tempo.</h4>
+<h2 id="definisci-un-sistema-efficiente-di-controllo-delle-versioni-efficiente-pensando-alla-sua-sicurezza.">Definisci un sistema efficiente di controllo delle versioni efficiente, pensando alla sua sicurezza.</h2>
+<ul>
+<li>Un sistema di controllo delle versioni è un programma software che ti permette di archiviare <strong>tutto il tuo codice sorgente e i file associati</strong> mantenendo la <strong>cronologia di tutte le modifiche</strong> che sono state fatte. Un semplice server FTP non è un sistema di controllo delle versioni.</li>
+<li>Imposta il tuo ambiente correttamente usando le funzionalità offerte dal tuo sistema di controllo delle versioni. Ti raccomandiamo di utilizzare una <strong>autenticazione forte</strong> o un’<strong>autenticazione con chiavi SSH</strong> sin dall’inizio del tuo progetto.</li>
+<li>Oltre a questo, assegna dei <em>livelli di accesso</em> al progetto per i diversi utenti del tuo sistema di controllo delle versioni e per ciascun livello definisci i corrispondenti <strong>permessi</strong> (per esempio, un livello “guest” con diritti di limitati di lettura, un livello “developer” con diritti di scrittura, ecc.)</li>
+<li>Fai <strong>backup</strong> regolari del tuo sistema di gestione del codice sorgente: In particolare, ricordati di fare il backup del server principale dove vengono registrate tutte le modifiche.</li>
+<li>Definisci procedure di sviluppo per lavorare in efficienza anche se <strong>più persone sviluppano in contrmporanea</strong>. Per esempio, puoi decidere <strong>che non tutti lavorino sullo stesso ramo (<em>master branch</em>) ma che ciascuno lavori su un ramo distinto, che verrà poi inglobato nel ramo principale mano a mano che lo sviluppo procede. Questo tipo di strategie sono già ben documentate, per esempio in <a href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a>.</strong> In aggiunta, alcuni sistemi di controllo delle versioni ti permettono di definire <strong>branch protetti</strong> che impediscono cambiamenti non autorizzati ai file di quei branch.</li>
+</ul>
+<h2 id="sii-consapevole-del-contenuto-del-tuo-codice-sorgente.">Sii consapevole del contenuto del tuo codice sorgente.</h2>
+<ul>
+<li>Adotta <strong>strumenti di valutazione della qualità del codice</strong> (quality metrics) che analizzano il codice al momento del <em>commit</em> per verificarne la buona qualità. Puoi anche aggiungere script per il controllo di queste metriche alla <a href="https://git-scm.com/book/uz/v2/Customizing-Git-Git-Hooks">configurazione del sistema di controllo delle versioni</a>, in modo che il <em>commit</em> sia annullato se il sorgente non è di una qualità sufficiente.</li>
+<li>Mantieni i file segreti e le password al difuori del repository del codice sorgente:
+<ul>
+<li>in <strong>file separati, non soggetti a <em>commit</em></strong>. Ricorda di usare i file speciali del tuo sistema di controllo delle versioni (come ad esempio <em>.gitignore</em> PER <em>Git</em>) in modo che non ti succeda per errore di fare <em>commit</em> di file sensibili</li>
+<li>riguardo alle <strong>variabili d’ambiente</strong> assicurati di controllare che non vengano accidentalmente registrate nei <em>log</em> o visualizzate quando un applicativo va in errore</li>
+<li>usa <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-managing-secrets-safely-with-version-control-systems#using-configuration-management-systems-for-secret-management"><strong>specifici software di configuration management o di secret management</strong></a>.</li>
+</ul></li>
+<li><p>Infine, se devi includere dati di questo genere nel tuo repository, prendi in considerazione la possibilità di <strong>cifrare/decifrare automaticamente</strong> questi file tramite un <em>plugin</em> del sistema di controllo di versione (ad es. <a href="https://github.com/AGWA/git-crypt"><em>git-crypt</em></a>).</p></li>
+<li>Dopo un <em>commit</em> che contiene dati personali o altri dati critici, non dimenticare di fare un <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History"><em>purge</em></a> <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository#purging-a-file-from-your-repositorys-history">completo</a> del repository del codice sorgente: anche dopo ulteriori modifiche, quei dati potrebbero essere ancora disponibili nella <em>history</em> del tuo repository.</li>
+<li><p>Fa’ attenzione prima di <strong>pubblicare online il tuo codice sorgente</strong>. Passa in rassegna <strong>tutti i contenuti</strong>, inclusa tutta la <em>history</em> delle modifiche.</p></li>
+</ul>
+<h2 id="esempi-di-strumenti">Esempi di strumenti</h2>
+<ul>
+<li><p>A differenza di strumenti come <a href="https://subversion.apache.org/">Subversion</a>, che richiedono un server centrale per funzionare, i principali sistemi di controllo delle versioni (come ad esempio<a href="https://git-scm.com/">Git</a> o <a href="https://www.mercurial-scm.org/">Mercurial</a> for example) sono <strong>decentralizzati</strong>.</p></li>
+<li><p>La maggior parte di questi sistemi, inclusi gli strumenti relativi (bug management, wiki per la documentazione, ecc.), sono anche disponibili attraverso <strong>un’interfaccia web</strong> . Queste soluzioni possono essere accessbili via Internet (<a href="https://github.com/">GitHub</a>, <a href="https://bitbucket.org/">Bitbucket</a>, ecc.), o possono essere integrate nei tuoi server.</p></li>
+</ul>
+<h1 id="scheda-n5-fai-scelte-architetturali-informate">Scheda n°5: Fai scelte architetturali informate</h1>
+<h4 id="quando-progetti-larchitettura-della-tua-applicazione-devi-identificare-i-dati-personali-che-verranno-raccolti-e-definire-un-percorso-e-un-ciclo-di-vita-per-ciascuno-di-essi.-la-scelta-degli-asset-di-supporto-storage-locale-server-servizi-in-cloud-è-un-momento-cruciale-che-deve-essere-adeguato-ai-tuoi-bisogni-ma-anche-alla-tua-conoscenza-tecnica.-il-registro-dei-trattamenti-e-la-conduzione-di-un-privacy-impact-assessment-ti-possono-assistere-in-questa-scelta.">Quando progetti l’architettura della tua applicazione, devi identificare i dati personali che verranno raccolti, e definire un percorso e un ciclo di vita per ciascuno di essi. La scelta degli asset di supporto (storage locale, server servizi in cloud) è un momento cruciale, che deve essere adeguato ai tuoi bisogni ma anche alla tua conoscenza tecnica. Il registro dei trattamenti e la conduzione di un Privacy Impact Assessment ti possono assistere in questa scelta.</h4>
+<h2 id="esaminare-il-ciclo-di-vita-di-dati-e-processi-dalla-raccolta-alla-cancellazione.">Esaminare il ciclo di vita di dati e processi, dalla raccolta alla cancellazione.</h2>
+<ul>
+<li>Descrivi e rappresenta il modo in cui funziona genericamente il tuo prodotto prima di avviare il progetto, usando diagrammi di tipo <em>data flow</em> e fornendo una descrizione dettagliata dei processi.</li>
+<li>Quando i dati sono <strong>registrati solo sul terminale dell’utente</strong> (storage locale) o <strong>rimangono confinati a reti sotto il controllo dell’utente</strong> (ad es. Wi-Fi o altra rete locale), la sicurezza dei dati è il principale punto di attenzione. Il periodo di conservazione dei dati e la loro cancellazione dovrebbero essere determinati dai singoli utenti.</li>
+<li><strong>quando i dati viaggiano attraverso servizi online</strong>, devi scegliere se porti come hosting o usare un fornitore di servizi sulla base delle tue competenze di sicurezza e della qualità che ci si aspetta dal servizio. I fornitori cloud più noti possono offrire livelli di sicurezza più elevati, ma generano nuovi rischi che devono essere tenuti sotto controllo. Queste <a href="https://www.cnil.fr/sites/default/files/typo/document/Recommendations_for_companies_planning_to_use_Cloud_computing_services.pdf">Raccomandazioni per le aziende che desiderano avvalersi di servizi di cloud computing</a> possono guidarti durante questo stadio di scelta.</li>
+</ul>
+<h2 id="nel-caso-si-usi-un-hosting-esterno">Nel caso si usi un hosting esterno</h2>
+<ul>
+<li><strong>Scegli un fornitore di servizi che ti assicuri misure adeguate di sicurezza e confidenzialità e sia sufficientemente trasparente</strong>.</li>
+<li><strong>Assicurati di conoscere la collocazione geografica dei server che accoglieranno i tuoi dati</strong>. Ti potrebbe venire chiesto di trasferire i dati al di fuori dell’Unione Europea (UE) e della European Economic Area (EEA). Mentre i dati possono muoversi liberamente all’interno della UE/EEA, i trasferimenti al di fuori idi UE/EEA sono possibili solo se vengono assicurati livelli sufficienti e appropriati di protezione dei dati personali. Sul sito di CNIL puoi trovare una mappa che mostra <a href="https://www.cnil.fr/en/data-protection-around-the-world">i diversi livelli di protezione dei dati nei diversi paesi del mondo</a>.</li>
+<li><strong>Se devi immagazzinare dati relativi alla salute</strong>, assicurati che il provider di cui ti servi sia <a href="https://esante.gouv.fr/labels-certifications/hds/liste-des-herbergeurs-certifies">certificato</a> o <a href="https://esante.gouv.fr/labels-certifications/hds/liste-des-herbergeurs-agrees">approvato</a> per questo genere di attività.</li>
+<li>Altri punti da tenere presente:
+<ul>
+<li>l’esistenza di una policy di sicurezza accessibile;</li>
+<li>misure fisiche di protezione e sicurezza presso il sito di hosting;</li>
+<li>cifratura dei dati e altri processi per assicurare che il provider non abbia accesso ai dati che gli vengono affidati;</li>
+<li>gestione degli aggiornamenti, gestione delle autorizzazioni, autenticazione del personale e sicurezza degli sviluppi applicativi;</li>
+<li>facilità della reversibilità/portabilità dei dati in un formato strutturato di uso comune, in qualsiasi momento e su richiesta.</li>
 </ul></li>
 </ul>
-<h1 id="sheet-n6-secure-your-websites-applications-and-servers">Sheet n°6: Secure your websites, applications and servers</h1>
-<h4 id="any-website-application-or-server-must-incorporate-basic-state-of-the-art-security-rules-not-only-on-network-communications-but-also-on-authentication-and-infrastructure.">Any website, application or server must incorporate basic state-of-the-art security rules, not only on network communications but also on authentication and infrastructure.</h4>
-<h2 id="securing-communication-networks">Securing communication networks</h2>
+<h1 id="scheda-n6-metti-in-sicurezza-siti-applicazioni-e-server">Scheda n°6: Metti in sicurezza siti, applicazioni e server</h1>
+<h4 id="ogni-sito-applicazione-e-server-deve-incorporare-regole-di-base-di-sicurezza-allo-stato-dellarte-non-solo-per-le-comunicazioni-di-rete-ma-anche-per-lautenticazione-e-la-gestione-dellinfrastruttura.">Ogni sito, applicazione e server deve incorporare regole di base di sicurezza allo stato dell’arte, non solo per le comunicazioni di rete, ma anche per l’autenticazione e la gestione dell’infrastruttura.</h4>
+<h2 id="mettere-in-sicurezza-le-reti-di-comunicazione">Mettere in sicurezza le reti di comunicazione</h2>
 <ul>
-<li><p><strong>Implement TLS version 1.2 or 1.3</strong> (replacing SSL) on all websites and for data transmissions of your mobile applications, for example with <a href="https://letsencrypt.org/fr/">LetsEncrypt</a>, using only the most recent versions and checking its correct implementation.</p></li>
-<li><p><strong>Make the use of TLS mandatory</strong> for all pages of your site and for your mobile applications.</p></li>
-<li><p><strong>Limit the communication ports</strong> strictly necessary for the proper functioning of the installed applications. If access to a web server is only possible using the HTTPS protocol, only ports 443 and 80 of this server must be accessible, all other ports can be blocked by the firewall.</p></li>
-<li><p><strong>The OWASP has published on its website some cheatsheets</strong> for exemple to <a href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html">correctly implement TLS</a> or to <a href="https://cheatsheetseries.owasp.org/cheatsheets/Web_Service_Security_Cheat_Sheet.html">secure a webservice</a>.</p></li>
+<li><strong>Implementare TLS versione 1.2 or 1.3</strong> (al posto di SSL) su tutti i siti web e per le trasmissioni dati elle tue applicazioni mobili, per esempio con <a href="https://letsencrypt.org/fr/">LetsEncrypt</a>, usando solo le versioni più recenti e controllando la correttezza dell’implementazione.</li>
+<li><strong>Rendi obbligatorio l’uso di TLS</strong> per tutte le pagine del tuo sito e per tutte le applicazioni mobili.</li>
+<li><strong>Riduci i port di comunicazione aperti</strong> a quelli strettamente necessari per il corretto funzionamento delle applicazioni installate. Se l’accesso a un server web è possibile solo attraverso il protocollo HTTPS, allora solo i port 80 e 443 del server devono essere accessibili, e tutti gli altri port possono essere bloccati dal firewall.</li>
+<li><strong>OWASP ha pubblicato delle schede-guida</strong>, ad esempio per <a href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html">implementare correttamente TLS</a> o per <a href="https://cheatsheetseries.owasp.org/cheatsheets/Web_Service_Security_Cheat_Sheet.html">mettere in sicurezza un webservice</a>.</li>
 </ul>
-<h2 id="securing-authentications">Securing Authentications</h2>
+<h2 id="mettere-in-sicurezza-le-autenticazioni">Mettere in sicurezza le autenticazioni</h2>
 <ul>
-<li><p><strong>Follow <a href="https://www.cnil.fr/fr/node/23803">the CNIL recommendation on passwords</a></strong>. In particular, remember to limit the number of access attempts.</p></li>
-<li><p><strong>Never store passwords in clear text</strong>. Store them as a hash using a proven library, such as <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a>.</p></li>
-<li><p><strong>If cookies are used for authentication</strong>, it is recommended:</p>
-<ul>
-<li><p>to force the use of HTTPS via <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a>;</p></li>
-<li><p>to use the <code>secure</code> flag;</p></li>
-<li><p>use the <code>HttpOnly</code> flag.</p></li>
-</ul></li>
-<li><p><strong>Test the cryptographic suites installed on the systems</strong> and disable obsolete ones (RC4, MD4, MD5 etc.). Encourage the use of AES256. <a href="https://owasp.org/www-project-cheat-sheets/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html">Read the OSWAP note on the subject</a>.</p></li>
-<li><p><strong>Adopt a specific password policy for administrators</strong>. Change the passwords, at least, each time an administrator leaves and in case of suspected breach. Encourage strong authentication when possible.</p></li>
-<li><p><strong>Limit access to administration tools and interfaces to qualified staff.</strong> Encourage the use of lower-privilege accounts for day-to-day operations.</p></li>
-<li><p><strong>Remote access to administration interfaces should be subject to increased security measures.</strong> For example, for internal servers, implementing a VPN with strong authentication of the user and the workstation he or she is using may be a good solution.</p></li>
+<li><p><strong>Segui le <a href="https://www.cnil.fr/fr/node/23803">raccomandazioni CNIL per le password</a></strong>. In particolare, ricordati di mettere un limite al numero di tentativi di accesso.</p></li>
+<li><p><strong>Non archiviare mai le passowrd in chiaro</strong>. Memorizza il loro hash usando una libreria consolidata, come <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a>.</p></li>
+<li><strong>Se usi cookie per l’autenticazione</strong>, ti raccomandiamo:</li>
+<li><p>di forzare l’uso di HTTPS tramite <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a>;</p></li>
+<li><p>di usare il flag <code>secure</code>;</p></li>
+<li><p>usa il flag <code>HttpOnly</code>.</p></li>
+<li><p><strong>Testa le librerire di crittografia installate sui tuoi sistemi</strong> e disabilita quelle obsolete (RC4, MD4, MD5 etc.). Incoraggia l’utilizzo di AES256. <a href="https://owasp.org/www-project-cheat-sheets/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html">Leggi le note di OWASP al riguardo</a>.</p></li>
+<li><p><strong>Adotta una politica specifica per le password degli amministratori</strong>. Come minimo, cambia le loro password ogni volta che un amministratore lascia il lavoro, e comunque sempre in caso di sospetta violazione della sicurezza.</p></li>
+<li><p><strong>Limita l’accesso ai tool e alle interfacce di amministrazione al solo staff qualificato per il loro uso.</strong> Per le operazioni quotidiane, incoraggia l’utilizzo di account a privilegi ridotti.</p></li>
+<li><p><strong>L’accesso remoto alle interfacce di amministrazione deve essere soggetto a misure di sicurezza rinforzate.</strong> Per esempio, per i server interni, può essere una buona soluzione dotarsi di una VPN con autenticazione forte dell’utente e della macchina che usa per connettersi.</p></li>
 </ul>
-<h2 id="securing-infrastructures">Securing infrastructures</h2>
+<h2 id="mettere-in-sicurezza-le-infrastrutture">Mettere in sicurezza le infrastrutture</h2>
 <ul>
-<li><p><strong>Make backups, if possible encrypted and checked regularly</strong>. This is especially useful in case of a ransomware attack on your systems as having backups for all your systems will be the only measure that will allow you to restore your systems.</p></li>
-<li><p><strong>Limit the size of the software stack used,</strong> and for each element of the stack:</p>
+<li><p><strong>Fai backup regolari, cifrati e controllati regolarmente</strong>. Questo è particolarmente utile nel caso di attacchi di tipo <em>ransomware</em> perché in quel caso la disponibilità di un backup di tutti i sistemi è la tua sola possibilità di ripristinare i sistemi.</p></li>
+<li><strong>Limita la dimensione dello stack software che impieghi</strong> e per ciascun elemento dello stack:</li>
+<li><strong>Installa gli update critici</strong> senza ritardo, programmando un controllo automatico settimanale;
 <ul>
-<li><strong>Install critical updates</strong> without delay by scheduling an automatic weekly check;</li>
-<li><strong>Automate a vulnerability watch</strong> by subscribing to the <a href="https://nvd.nist.gov/vuln/data-feeds">NVD Data Feeds</a> for example.</li>
+<li><strong>Automatizza il controllo delle vulnerabilità</strong> abbonandoti per esempio ai <a href="https://nvd.nist.gov/vuln/data-feeds">Data Feed di NVD</a>.</li>
 </ul></li>
-<li><p><strong>Use vulnerability detection tools</strong> for the most critical processes to detect possible security breach. Systems for detecting and preventing attacks on critical systems or servers can also be used. These tests must be conducted regularly and before any new software version is put into production.</p></li>
-<li><p><strong>Restrict or fordbid physical and software access to diagnostic and remote configuration ports.</strong> For example, you can list all open ports using the <em>netstat</em> tool.</p></li>
-<li><p><strong>Protect the databases you make available on the Internet</strong>, at least by restricting access as much as possible (for example, by IP filtering) and by changing the default password for the administrator account.</p></li>
-<li><p>In terms of database management, good practices include:</p>
+<li><p><strong>Adotta strumenti di scoperta delle vulnerabilità</strong> per i processi più critici, in modo da poter scoprire possibili violazioni di sicurezza. Puoi usare sistemi per la scoperta e la prevenzione di attacchi anche sui sistemi e sui server critici. Questi test devono essere condotti regolarmente e comunque prima della messa in produzione di ogni nuovo software.</p></li>
+<li><p><strong>Limita o proibisci l’accesso sia fisico che via software ai port di diagnostica e di configurazione remota</strong>. Per esempio, puoi avere l’elenco di tutti i port aperti con lo strumento <code>netstat</code>.</p></li>
+<li><p><strong>Proteggi i database che esponi su Internet</strong>, come minimo limitando il più possibile l’accesso e cambiando la password di default per l’account dell’amministratore.</p></li>
+<li><p>Per quanto riguarda la gestione di database, le buone pratiche includono:</p>
 <ul>
-<li><strong>using nominative accounts</strong> for database access and create specific accounts for each application;</li>
-<li><strong>revoking the administrative privileges</strong> of user or application accounts to avoid modification to database structure (table, vues, process, etc);</li>
-<li>having protection against SQL or script injection attacks;</li>
-<li>encouraging at rest disk and database encryption.</li>
+<li>per l’accesso al database <strong>usare account nominativi </strong> e creare account specifici per ciascuna applicazione;</li>
+<li><strong>revoca i privilegi di amministratore</strong> degli account (utente o applicativo) per evitare modifiche alla struttura del database (tabelle, viste, processi, ecc.);</li>
+<li>assicurati di proteggerti contro attacchi di tipo SQL injection o *script injection;</li>
+<li>incoraggia la cifratura a riposo di dischi e database.</li>
 </ul></li>
 </ul>
-<h1 id="sheet-n7-minimize-data-collection">Sheet n°7: Minimize data collection</h1>
-<h4 id="you-shall-only-collect-personal-data-that-is-adequate-relevant-and-necessary-in-relation-to-the-purposes-for-which-they-are-processed-as-defined-at-the-time-of-collection.">You shall only collect personal data that is adequate, relevant and necessary in relation to the purposes for which they are processed, as defined at the time of collection.</h4>
-<h2 id="before-collection-think-about-the-different-types-of-data-you-need-to-collect-and-try-to-limit-your-collection-to-what-is-strictly-necessary.">Before collection, think about the different types of data you need to collect and try to limit your collection to what is strictly necessary.</h2>
+<h1 id="scheda-n7-minimizza-la-raccolta-di-dati">Scheda n°7: Minimizza la raccolta di dati</h1>
+<h4 id="devi-raccogliere-solo-i-dati-personali-rilevanti-adeguati-e-necessari-per-la-finalità-per-la-quale-li-raccogli-come-definita-al-momento-della-raccolta.">Devi raccogliere solo i dati personali rilevanti, adeguati e necessari per la finalità per la quale li raccogli, come definita al momento della raccolta.</h4>
+<h2 id="prima-della-raccolta-pensa-ai-diversi-tipi-di-dati-che-devi-raccogliere-e-limita-la-raccolta-a-ciò-che-è-strettamente-necessario.">Prima della raccolta, pensa ai diversi tipi di dati che devi raccogliere e limita la raccolta a ciò che è strettamente necessario.</h2>
 <ul>
-<li><p>Think about the different <strong>types of data</strong> that will need to be collected before an application is implemented and <strong>document</strong> this thinking.</p></li>
-<li><p>If specific data is not <strong>needed for a certain category of people</strong>, do not collect it.</p></li>
-<li><p>Process and store data in a way that <strong>reduces accuracy</strong> (similar to pseudonymization). For example, store only the year of birth instead of a full date of birth if the application only needs the year.</p></li>
-<li><p>If collecting particularly sensitive data, such as health or criminal convictions data, be sure to collect only the <strong>minimum required</strong>. Due to the regulatory constraints, the simplest solution is still to <strong>not collect them</strong> if you can do without them.</p></li>
-<li><p>Minimize the amount of data collected also in the <strong>log data</strong> and do not store sensitive or critical data (health data, passwords, etc.).</p></li>
-<li><p>Some features may improve the user experience, but are <strong>not strictly necessary for your application to work properly</strong> (e.g. geolocation to simplify a geographic search). In this case, the end user must be able to <strong>choose whether or not to use</strong> this functionality. If he uses it, the data that you are led to collect for its operation must only be kept for the time strictly necessary for its operation and never be used for other purposes.</p></li>
-<li><p>Remember to associate <strong>retention periods</strong> for each category of data, depending on the purpose of the processing and the legal or regulatory obligations relating to their retention. Logs must also have a retention period. Document the defined retention durations. You will need to be able to justify them.</p></li>
+<li>Pensa ai diversi <strong>tipi di dati</strong> che dovrai raccogliere prima di implementare la tua applicazione e <strong>documenta</strong> questi ragionamenti.</li>
+<li>Se <strong>per una certa categoria di persone non servono</strong> alcuni dati, non raccoglierli.</li>
+<li>Tratta e archivia i dati in modo da <strong>ridurre l’accuratezza</strong> (analogamente a quanto avviene per la pseudonimizzazione). Per esempio, se l’applicazione necessita solo dell’anno di nascita, archivia soltanto l’anno di nascita invece dell’intera data di nascita.</li>
+<li>Se raccogli dati particolarmente sensibili, come dati riguardanti la salute o informazioni giudiziarie, assicurati di raccogliere solo il <strong>minimo necessario</strong>. A causa delle restrizioni legali, la soluzione più semplice è ancora una volta <strong>non raccoglierli</strong> se puoi farne a meno.</li>
+<li>Minimizza anche i dati raccolti nei <strong>log di sistema</strong> e non fargli registrare dati sensibili o critici (password, dati sanitari, ecc.)</li>
+<li>Alcune funzionalità potrebbero migliorare l’esperienza utente ma <strong>non sono strettamente necessarie per il corretto funzionamento dell’applicazione</strong> (ad es. la geolocalizzazione per migliorare una ricerca geografica). In questo caso, l’utente finale deve poter <strong>scegliere se usare o meno queste funzionalità</strong>. Se decide di usarle, i dati ulteriori che raccoglierai devono essere conservati solo per il tempo strettamente necessario e non devono mai essere usati per altri scopi.</li>
+<li>Ricordati di associare un <strong>periodo di conservazione</strong> a ciascuna categoria di dati, sulla base dello scopo del trattamento e degli obblighi di legge relativi alla loro conservazione. Anche i logo di sistema devono avere un periodo di conservazione predefinito. Documenta i periodi di conservazione che hai definito, perché dovrai poterli motivare.</li>
 </ul>
-<h2 id="once-the-data-has-been-collected-set-up-automatic-deletion-mechanisms.">Once the data has been collected, set up automatic deletion mechanisms.</h2>
+<h2 id="una-volta-che-i-dati-sono-stati-raccolti-predisponi-meccanismi-di-cancellazione-automatica.">Una volta che i dati sono stati raccolti, predisponi meccanismi di cancellazione automatica.</h2>
 <ul>
-<li><p>Implement an automatic <strong>purge</strong> system at the end of the shelf life. You can also implement manual reviews of stored data on a periodic basis.</p></li>
-<li><p>To ensure complete erasure, erase <strong>physically</strong> all data that is no longer needed using specialized tools or by destroying the physical media.</p></li>
-<li><p>If the data is still useful, you can reduce its sensitivity by using <strong>pseudomisation</strong> or even <strong>anonymisation</strong> methods. In case of pseudonymization, these data remain subject to the regulations on personal data (see <a href="#Sheet_n°1_:_Identify_personal_data">Sheet 1</a>).</p></li>
-<li><p>Log the <strong>automatic deletion procedures</strong>. The corresponding logs can be used as a <strong>proof of deletion</strong> of a data item.</p></li>
+<li>Implementa un sistema automatico di <strong>eliminazione</strong> al termine della conservazione. Puoi anche predisporre revisioni manuali periodiche dei dati conservati.</li>
+<li>Per assicurare una cancellazione completa, cancella <strong>fisicamente</strong> tutti i dati non più necessari tramite strumenti specializzati, o distruggendo i media fisici.</li>
+<li>Se i dati sono ancora utili, puoi ridurne la sensibilità usando metodi di <strong>pseduonimizzazione</strong> o <strong>anonimizzazione</strong>. Nel caso della pseudonimizzazione, i dati rimangono soggetti alle norme sulla protezione dei dati personali (vedi <a href="#Scheda_n°1_:_Individua_i_dati_personali">Scheda 1</a>).</li>
+<li>Tieni un log delle <strong>procedure di cancellazione automatica</strong>. Questi log possono essere usati come <strong>prova di cancellazione</strong> di un certo dato.</li>
 </ul>
-<h1 id="sheet-n8-manage-user-profiles">Sheet n°8: Manage user profiles</h1>
-<h4 id="the-way-to-manage-profiles-of-your-collaborators-and-your-end-users-must-be-thought-out-upstream-of-your-developments.-it-consists-in-defining-different-access-and-authorization-profiles-so-that-each-person-can-access-only-the-data-he-or-she-actually-needs.">The way to manage profiles of your collaborators and your end-users must be thought out upstream of your developments. It consists in defining different access and authorization profiles so that each person can access only the data he or she actually needs.</h4>
-<h2 id="good-practices-for-user-management">Good practices for user management</h2>
+<h1 id="scheda-n8-gestisci-i-profili-utente">Scheda n°8: Gestisci i profili utente</h1>
+<h4 id="la-gestione-dei-profili-dello-staff-e-degli-utenti-deve-essere-valutata-a-monte-dello-sviluppo.-si-tratta-di-definire-profili-di-accesso-e-autorizzazione-differenti-in-modo-che-ciascuna-persona-possa-accedere-solo-ai-dati-di-cui-ha-effettiva-necessità.">La gestione dei profili dello staff e degli utenti deve essere valutata a monte dello sviluppo. Si tratta di definire profili di accesso e autorizzazione differenti in modo che ciascuna persona possa accedere solo ai dati di cui ha effettiva necessità.</h4>
+<h2 id="buone-pratiche-per-la-gestione-degli-utenti">Buone pratiche per la gestione degli utenti</h2>
 <ul>
-<li><p>It all starts with the <strong>use of unique and individual identifiers</strong>, whether they are users of your application or collaborators in development.</p></li>
-<li><p>Make sure to <strong>impose authentication</strong> before any access to personal data, in accordance with the <a href="https://www.cnil.fr/en/passwords-minimum-security-recommendations-businesses-and-citizens">recommendations of the CNIL</a>.</p></li>
-<li><p>To ensure that each person (user or collaborator) can only access to <strong>data he or she actually needs</strong>, your system must provide <strong>differentiated data access management policies</strong> (read, write, delete, etc.) according to people and needs. A global user profile management mechanism will allow you to group different rights according to a role exercised by a group of users within the application.</p></li>
-<li><p>The management of user profiles can be used along with <strong>logging systems in order to trace activities, and detect anomalies or events related to security</strong>, such as fraudulent access and misuse of personal data. These devices must not be used for any purpose other than ensuring the proper use of the computer system. Logs must also not be kept longer than necessary. In general, a period of six months is adequate.</p></li>
-<li><p>You can also plan code audits or penetration testing within your development environment to <strong>ensure robustness of your profile management system</strong>.</p></li>
+<li>Il punto di partenza è l’<strong>uso di identificativi unici e individuali</strong>, tanto per gli utenti dell’applicazione che per il team di sviluppo.</li>
+<li>Assicurati di richiedere l’autenticazione prima di qualunque accesso a dati personali, in linea con le <a href="https://www.cnil.fr/en/passwords-minimum-security-recommendations-businesses-and-citizens">raccomandazioni di CNIL</a>.</li>
+<li>Per assicurarti che ogni persona (utente o staff) possa accedere solo <strong>ai dati di cui ha effettiva necessità</strong>, il tuo sistema deve fornire <strong>politiche differenziare di gestione degli accessi ai dati</strong> (lettura, scrittura, cancellazione, ecc.) a seconda delle persone e delle loro necessità. Un meccanismo generale di gestione dei profili utente ti permetterà di raggruppare diritti diversi a seconda del ruolo svolto da un gruppo di utenti all’interno dell’applicazione.</li>
+<li>La gestione dei profili utente si può accompagnare a <strong>sistemi di log che consentano di tracciare le attività e individuare anomalie o eventi legati alla sicurezza</strong>, come accessi fraudolenti o abuso di dati personali. Questi sistemi non devono essere usati per altro scopo che non sia garantire un utilizzo corretto dei sistemi informatici. Inoltre, i log non possono essere conservati più di quanto sia necessario. In generale, si considera adeguata una conservazione per sei mesi.</li>
+<li>Considera anche di pianificare audit del codice o <em>penetration testing</em> per il tuo ambiente di sviluppo per <strong>garantire la robustezza del tuo sistema di gestione dei profili utente</strong>.</li>
 </ul>
-<h2 id="streamline-the-management-of-clearance-profiles">Streamline the management of clearance profiles</h2>
+<h2 id="semplifica-la-gestione-dei-profili-di-sicurezza">Semplifica la gestione dei profili di sicurezza</h2>
 <ul>
-<li><p>Plan to <strong>document or automate the movement of your collaborators</strong>. For example, these procedures should lead the actions to be taken when people are no longer authorized to access a room or an IT resource, or at the end of their contract.</p></li>
-<li><p>Managing your users and collaborators implies <strong>a regular review of the permission</strong> according to the evolution of uses and organizational movements within your project. The use of directory services, such as <em>Lightweight Directory Access Protocol</em> (<em>LDAP</em>), will help you monitor these changes and allow you to refine your access strategies, for example by assigning roles based on usage profiles. This allows you to better respect the principle of least privilege.</p></li>
-<li><p>The use of &quot;supreme&quot; accounts (type <em>root</em>, administrator, etc.) has to be avoided for conventional operations, as it constitutes the keystone of your system and a privileged target for a possible external attacker. We recommend that you associate a strong password policy with it (10 to 20 characters or multi-factor) and that you limit the number of people with knowledge of it to the strictest necessary.</p></li>
-<li><p><strong>Favour the use of a password manager within your project</strong> and the transition to strong authentication when possible. Avoid generic accounts shared by several people.</p></li>
+<li>Pianifica di <strong>documentare o automatizzare gli spostamenti dello staff</strong>. Per esempio, dovresti definire procedure che prescrivono cosa fare nel momento in cui una persona non è più autorizzata ad accedere a un locale o a una risorsa IT, o al termine del contratto.</li>
+<li>Gestire staff e utenti implica <strong>una revisione periodica dei permessi</strong> sulla base dell’evoluzione delle necessità e della mobilità organizzativa all’interno del progetto. L’uso di servizi di directory come ad esempio <em>Lightweight Directory Access Protocol</em>, ti aiuterà a tenere sotto controllo questi cambiamenti e ti permetterà di affinare le tue strategie di accesso, per esempio definendo ruoli sulla base dei profili di utilizzo delle risorse. Questo ti permetterà di rispettare al meglio il principio del minimo privilegio.</li>
+<li>L’uso di account “superutente” (come <em>root</em>, <em>Administrator</em>, ecc.) deve essere evitato per le operazioni quotidiane e di routine, perché costituiscono le fondamenta del tuo sistema e allo stesso tempo un bersaglio di elezione per un possibile attaccante esterno. In particolare per questi account ti raccomandiamo di adottare una politica di password forti (da 10 a 20 caratteri, oppure multi-fattore) e di limitare al massimo il numero di persone che la conoscono.</li>
+<li><strong>Favorisci l’utilizzo di un password manager all’interno del progetto</strong> e, ogjni volta che sia possibile, la transizione all’autenticazione forte. Evita account generici condivisi fra più persone.</li>
 </ul>
-<h1 id="sheet-n09-control-your-libraries-and-sdks">Sheet n°09: Control your libraries and SDKs</h1>
-<h4 id="do-you-use-libraries-sdks-or-other-software-components-written-by-third-parties-here-are-a-few-tips-on-how-to-integrate-these-tools-while-keeping-control-of-your-developments.">Do you use libraries, SDKs, or other software components written by third parties? Here are a few tips on how to integrate these tools while keeping control of your developments.</h4>
-<h2 id="make-an-informed-choice">Make an informed choice</h2>
+<h1 id="scheda-n09-controlla-librerie-e-sdk">Scheda n°09: Controlla librerie e SDK</h1>
+<h4 id="usi-librerie-sdk-o-altri-componenti-software-scritti-da-terze-parti-ecco-alcuni-suggerimenti-su-come-integrarli-mantenendo-comunque-il-controllo-del-tuo-sviluppo.">Usi librerie, SDK o altri componenti software scritti da terze parti? Ecco alcuni suggerimenti su come integrarli mantenendo comunque il controllo del tuo sviluppo.</h4>
+<h2 id="fai-una-scelta-informata">Fai una scelta informata</h2>
 <ul>
-<li><p><strong>Assess the value of adding each dependency.</strong> Some commonly used software bricks are only a few lines long. However, each added element is an increase in your system's attack surface. In the case where a single library offers several functionalities, integrate only the functionalities you actually need. By activating the minimum number of functionalities, you reduce the number of potential bugs that could occur.</p></li>
-<li><p><strong>Choose maintained software, libraries and SDKs:</strong></p>
+<li><p><strong>Valuta il valore di ciascuna dipendenza che aggiungi.</strong> Alcuni componenti software di uso comune sono lunghi solo poche righe. Però, ogni elemento aggiunto significa un aumento della superficie di attacco del tuo sistema. Se una singola libreria offre più funzionalità, integra solo le funzionalità di cui hai reale esigenza. Attivando il numero minimo di funzionalità riduci il numero di potenziali <em>bug</em> a cui sarai esposto.</p></li>
+<li><strong>Scegli software, librerie e SDK che vengono mantenuti:</strong></li>
+<li><p>Se vuoi usare software libero o open source, scegli progetti o soluzioni con una comunità attiva di utenti, aggiornamenti regolari e buona documentazione.</p></li>
+<li><p>Se usi altri tipi di soluzioni con un supporto commerciale, assicurati contrattualmente che il codice sia mantenuto e aggiornato per la durata di vita del tuo progetto.</p></li>
+<li><p><strong>Tieni in considerazione la privacy.</strong> Alcune librerie e alcuni SDK si ripagano usando i dati personali raccolti dalle applicazioni e dai siti in cui sono integrati. Assicurati che queste terze parti rispondano alle leggi applicabili sui dati personali, inclusa la corretta raccolta del consenso.</p></li>
+<li><p><strong>Se usi meccanismi crittografici, ti sconsigliamo fortemente di implementarti da solo gli algoritmi di cifratura</strong>, piuttosto scegli librerie crittografiche che sono riconosciute, mantenute e semplici da usare.</p></li>
+</ul>
+<h2 id="valuta-gli-elementi-individuati">Valuta gli elementi individuati</h2>
 <ul>
-<li><p>If you want to use free or open source software, try to choose projects or solutions with an active community, regular updates and good documentation.</p></li>
-<li><p>If you use other types of solutions with commercial support, contractually ensure that the code will be maintained and updated for the life of your project.</p></li>
+<li><strong>Leggi la documentazione e cambia le configurazioni di default</strong>. È importante sapere come funzionano le dipendenze del tuo codice. Le librerie di terze parti e gli SDK di solito hanno dei file di configurazione di default che spesso, per mancanza di tempo, non vengono nemmeno adattati, aprendo la via a molte falle di sicurezza.</li>
+<li><strong>Fai un audit delle tue librerie e degli SDK.</strong> Sai davvero tutto quello che fanno le librerie e gli SDK che integri nel tuo sviluppo? Quali dati vengono trasmessi attraverso queste dipendenze, e a chi? Un audit ti permetterà di determinare le prescrizioni di legge sulla protezione dei dati a cui devi attenerti e di stabilire le responsabilità di tutti gli attori coinvolti. <strong>Fai una mappa delle dipendenze.</strong> Le librerie di terze parti possono anche integrare altre componenti: fare un audit del loro codice ti permetterà di mappare meglio le tue dipendenze e di agire al meglio se una di loro mostra dei problemi. Per le componenti di terze parti, raccomandiamo anche che tu faccia degli audit di sicurezza e che li tenga poi monitorati.</li>
+<li><strong>Fai attenzione al <a href="https://it.wikipedia.org/wiki/Typosquatting">typosquatting</a> e altre tecniche malevole.</strong> Controlla i nomi delle dipendenze, e delle loro dipendenze, per evitare attacchi. Non fare copia-e-incolla di linee di comando da siti che non conosci.</li>
+</ul>
+<h2 id="mantieni-aggiornate-librerie-e-sdk">Mantieni aggiornate librerie e SDK</h2>
+<ul>
+<li><strong>Usa sistemi di gestione delle dipendenze</strong> (come yum, apt, maven, pip, ecc.) per mantenere una lista aggiornata delle tue dipendenze.</li>
+<li><strong>Gestisci gli aggiornamenti delle tue dipendenze</strong>, specialmente nel caso di aggiornamenti di sicurezza che risolvono delle vulnerabilità. Devi predisporre una procedura documentata per gestirle e metterle in produzione nel minor tempo possibile.</li>
+<li><strong>Fai attenzione a versioni di librerie e SDK a fine vita o a fine contratto</strong> che non saranno più supportati: cerca di trovare un’altra soluzione (scegli una nuova libreria, rinnova il supporto commerciale).</li>
+<li><strong>Controlla lo status dei progetti open-source</strong>, in particolare il cambio di dominio o di proprietà del pacchetto, alcuni attacchi usano aggiornamenti fasulli di dipendenze ampiamente in uso.</li>
+</ul>
+<h1 id="scheda-n10-garantisci-la-qualità-del-codice-e-della-documentazione">Scheda n°10: Garantisci la qualità del codice e della documentazione</h1>
+<h4 id="è-essenziale-adottare-il-prima-possibile-buone-tecniche-di-scrittura-del-codice.-la-leggibilità-del-codice-riduce-nel-tempo-gli-sforzi-di-mantenimento-e-di-correzione-dei-bug-per-te-e-per-i-tuoi-magari-futuri-collaboratori.">È essenziale adottare il prima possibile buone tecniche di scrittura del codice. La leggibilità del codice riduce nel tempo gli sforzi di mantenimento e di correzione dei bug per te e per i tuoi (magari futuri) collaboratori.</h4>
+<h2 id="documenta-il-codice-e-larchitettura">Documenta il codice e l’architettura</h2>
+<ul>
+<li><p>A volte durante lo sviluppo la documentazione viene trascurata, per mancanza di tempo o di visibilità del progetto. Però, è <strong>cruciale per la manutenibilità del progetto</strong>: ti permette di capire il modo in cui il codice funziona nel suo insieme, e di sapere quali parti di codice verranno affette da una modifica.</p></li>
+<li><p><strong>Documenta l’architettura, non solo il codice</strong>: quando scrivi la documentazione devi essere in grado di tenere in mente la visione d’insieme e aiutare altri sviluppatori a capire come tutte le diverse componenti del codice lavorano insieme. Perciò, quando documenti il tuo progetto concentrati su diagrammi e spiegazioni chiare.</p></li>
+<li><p><strong>Aggiorna la documentazione assieme al codice</strong>: il miglior modo per mantenere aggiornata la documentazione è di modificarla mano a mano che modifichi il codice.</p></li>
+<li><p>Se usi uno strumento di gestione del codice sorgente, in ciascun <em>commit</em> che modifica il sorgente puoi includere anche le modifiche alla relativa documentazione (vedi in particolare la scheda <a href="#Scheda_n°4_:_Gestisci%20il%20codice%20sorgente">“Gestisci il codice sorgente”</a>).</p></li>
+<li><p><strong>Nella documentazione, non scordare di trattare la parte relativa alla sicurezza</strong>. In particolare, puoi documentare le differenti scelte di configurazione della tua applicazione, e spiegare quali regolazioni sono più sicure.</p></li>
+</ul>
+<h2 id="controlla-la-qualità-del-codice-e-della-documentazione">Controlla la qualità del codice e della documentazione</h2>
+<ul>
+<li>Un codice di qualità richiede <strong>l’adozione di buone pratiche e convenzioni di scrittura</strong>, applicate in modo consistente in tutta l’applicazione. È anche opportuno fare riferimento a <a href="https://github.com/Kristories/awesome-guidelines">convenzioni esistenti</a>. Ecco alcuni esempi di buone pratiche:
+<ul>
+<li><strong>Usare nomi di variabile e di funzione espliciti</strong> ende più semplice capire a colpo d’occhio cosa sta succedendo.</li>
+<li><strong>Indentare correttamente il codice</strong> ti permette di comprendere più velocemente la struttura del codice.</li>
+<li><strong>Evitare la ridondanza del codice</strong> riduce la necessità di replicare una modifica in più punti. Una svista si dimentica in fretta.</li>
 </ul></li>
-<li><p><strong>Take privacy into account.</strong> Some SDKs or libraries pay for themselves by using personal data collected from the applications or sites on which they are integrated. Make sure that such third parties comply with applicable laws regarding personal data, including a mechanism for obtaining user consent.</p></li>
-<li><p><strong>If you use cryptographic mechanisms, it is strongly discouraged to implement cryptographic algorithms or protocols yourself</strong>, but rather try to choose cryptographic libraries that are maintained, recognized and easy to use.</p></li>
-</ul>
-<h2 id="evaluate-the-selected-elements">Evaluate the selected elements</h2>
+<li><strong>Esistono strumenti che possono aiutarti a controllare la qualità del codice</strong>. Una volta che li hai configurati correttamente, ti eviteranno di rileggere il codice per assicurarti che le convenzioni di scrittura siano state rispettate. Alcuni esempi di questi strumenti sono:</li>
+<li><strong>Ambienti di sviluppo integrati </strong> (“<em>IDE–Integrated Development Environments</em>”), magari con l’aggiunta di plugin, che possono essere configurati per rispettare le regole di indentazione, le linee vuote fra diverse porzioni di codice o la posizione delle parentesi, graffe o di altro tipo.
 <ul>
-<li><strong>Read the documentation and change the default configurations</strong>. It is important to know how your dependencies work. Third party libraries and SDKs often come with default configuration files, which are rarely changed due to lack of time, which causes many security holes.</li>
-<li><strong>Audit your libraries and SDKs.</strong> Do you really know what all the libraries and SDKs you integrate do? What data is sent through these dependencies and to whom? This audit will allow you to determine the data protection obligations to be respected and to establish the responsibility of the actors.</li>
-<li><strong>Map you dependencies.</strong> Third-party libraries and SDKs can also integrate other components: auditing their code will allow you to better map all your dependencies and to better act if a problem affects one of them. It is also recommended that you perform security audits of your third-party components and monitor them.</li>
-<li><strong>Beware of <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a> and other malicious techniques.</strong> Check the names of dependencies, as well as their own dependencies to avoid attacks. Do not copy and paste command lines from unknown sites.</li>
-</ul>
-<h2 id="maintain-libraries-and-sdks">Maintain libraries and SDKs</h2>
-<ul>
-<li><strong>Use dependency management systems</strong> (such as yum, apt, maven, pip, etc.) to maintain an up-to-date list of your dependencies.</li>
-<li><strong>Manage updates to your dependencies,</strong> especially in the case of security updates that fix vulnerabilities. You must set up a documented procedure to manage and deploy them as soon as possible.</li>
-<li><strong>Be aware of the versions of libraries and SDKs at the end of support</strong> that will no longer be maintained: try to find another solution (choose a new library, renew commercial support).</li>
-<li><strong>Check the status of open-source projects,</strong> especially the change of domain or package ownership, some attacks using malicious updates of popular dependencies.</li>
-</ul>
-<h1 id="sheet-n10-ensure-quality-of-the-code-and-its-documentation">Sheet n°10: Ensure quality of the code and its documentation</h1>
-<h4 id="it-is-essential-to-adopt-good-code-writing-techniques-as-soon-as-possible.-code-readability-reduce-the-effort-of-maintenance-and-bug-fixes-over-time-for-you-and-your-possibly-futurecollaborators.">It is essential to adopt good code-writing techniques as soon as possible. Code readability reduce the effort of maintenance and bug fixes over time for you and your (possibly future)collaborators.</h4>
-<h2 id="document-code-and-architecture">Document code and architecture</h2>
-<ul>
-<li><p>Documentation is sometimes left out during development, due to lack of time or visibility on the project. However, it is <strong>crucial for the maintainability of your project</strong>: it allows you to understand how the code works globally, and to know which parts of the code are affected by a modification.</p></li>
-<li><p><strong>Document the architecture, not just the code</strong>: you need to be able to keep the big picture in mind when you write your documentation and help developers understand how all your components work together. Therefore, focus on diagrams and clear explanations when documenting your project.</p></li>
-<li><p><strong>Maintain the documentation along with the code</strong>: The best way to keep your documentation up to date is to modify it as you go along with the code.</p></li>
-<li><p>If you use a source code manager, you can also include documentation changes for each &quot;<em>commit</em>&quot; that modifies your code (see in particular <a href="#Sheet_n°4_:_Manage%20your%20source%20code">the &quot;Manage your source code&quot; form</a>).</p></li>
-<li><p><strong>Do not forget to address security in your documentation</strong>. In particular, you can document the different configuration choices for your application, and explain which settings are the most secure.</p></li>
-</ul>
-<h2 id="check-the-quality-of-your-code-and-its-documentation.">Check the quality of your code and its documentation.</h2>
-<ul>
-<li>A quality code involves <strong>adoption of good practices and coding conventions</strong> applied consistently throughout the program. It is also best to refer to <a href="https://github.com/Kristories/awesome-guidelines">existing conventions</a>. Here are a few examples of good practice:
-<ul>
-<li><strong>Using explicit variable and function names</strong> makes it easier to understand what is going on at first glance.</li>
-<li><strong>Correctly indenting your code</strong> allows you to see the structure of the code more quickly.</li>
-<li><strong>Avoiding code redundancy</strong> reduces the correction efforts that have to be made in several places. An oversight is quickly forgotten.</li>
-</ul></li>
-<li><p><strong>Tools can help you control the quality of your code</strong>. Once correctly set up, they will avoid re-reading the code to check the correct implementation of coding conventions. Example of these tools are:</p>
-<ul>
-<li><strong>Integrated development environments</strong> (&quot;<em>IDE</em>&quot;), possibly using plugins (&quot;<em>plugins</em>&quot;), can be configured to respect code indentation rules, line breaks between different portions of code, or the position of braces and other parentheses.</li>
-<li><strong>Source code quality measurement software</strong> can report code duplications, compliance with programming rules or potential bugs.</li>
+<li><strong>Software di misurazione della qualità del codice</strong> possono segnalarti duplicazioni, adesione alle regole di programmazione e potenziali bug.</li>
 </ul></li>
 </ul>
-<h1 id="sheet-n11-test-your-applications">Sheet n°11: Test your applications</h1>
-<h4 id="testing-your-product-allows-you-to-check-its-correct-operation-to-ensure-a-good-user-experience-and-to-find-and-prevent-defects-before-it-goes-into-production.-testing-your-product-also-reduces-the-risk-of-personal-data-breaches.">Testing your product allows you to check its correct operation, to ensure a good user experience and to find and prevent defects before it goes into production. Testing your product also reduces the risk of personal data breaches.</h4>
-<h2 id="automate-testing">Automate testing</h2>
+<h1 id="scheda-n11-testa-le-applicazioni">Scheda n°11: Testa le applicazioni</h1>
+<h4 id="testare-i-tuoi-prodotti-ti-permette-di-controllare-che-funzionino-correttamente-che-lesperienza-utente-sia-buona-e-di-trovare-e-prevenire-difetti-prima-che-il-codice-vada-in-produzione.-i-test-riducono-anche-i-rischi-di-violazioni-dei-dati-personali.">Testare i tuoi prodotti ti permette di controllare che funzionino correttamente, che l’esperienza utente sia buona e di trovare e prevenire difetti prima che il codice vada in produzione. I test riducono anche i rischi di violazioni dei dati personali.</h4>
+<h2 id="automatizza-i-test">Automatizza i test</h2>
 <ul>
-<li><p>The <strong>development tests</strong> (unit, functional, etc.) will verify the adequacy between the specifications and the functioning of the product. The <strong>security tests</strong> (random data tests also called &quot;<em>fuzzing</em>&quot;, <em>scan</em> of vulnerabilities, etc.), will check that the product continues to function acceptably when you move away from its normal use and that it does not present any vulnerability that could allow third parties to compromise its security. Both types of tests are important for the proper functioning of your application.</p></li>
-<li><p>Set up a <strong>continuous integration system</strong> to run the tests automatically after each change in your source code.</p></li>
+<li><p>I <strong>test di sviluppo</strong> (unit, funzionali, ecc.) verificheranno la corrispondenza fra le specifiche e il funzionamento del prodotto. I <strong>test di sicurezza</strong> (test con dati casuali anche detti <em>“fuzzying”</em>, scansione delle vulnerabilità, ecc.) verificheranno che il prodotto continui a funzionare in modo accettabile anche al di fuori dell’utilizzo normale, e che non presenti vulnerabilità che permetterebbero a terze parti di comprometterne la sicurezza. Entrambi i tipi di test sono importanti per il corretto funzionamento della tua applicazione.</p></li>
+<li><p>Appronta un <strong>sistema di integrazione continua</strong> per eseguire i test in automatico dopo ogni modifica al codice sorgente.</p></li>
 </ul>
-<h2 id="integrate-testing-into-your-business-strategy.">Integrate testing into your business strategy.</h2>
+<h2 id="integra-i-test-nella-tua-strategia-di-business">Integra i test nella tua strategia di business</h2>
 <ul>
-<li><p>Add the implementation of the test environment into the company's strategy. The <strong>acceptable metrics</strong> must be defined jointly by all parties prior to development.</p></li>
-<li><p>Metrics to consider are for example:</p>
+<li><p>Aggiungi l’implementazione dell’ambiente di test alla strategia di business. Le <strong>metriche accettabili</strong> devono essere definite congiuntamente da tutte le parti in causa prima dello sviluppo..</p></li>
+<li><p>Le metriche che puoi considerare sono per esempio:</p>
 <ul>
-<li>The <strong>coverage rate</strong> of tests and their type;</li>
-<li>the <strong>duplication rate</strong> of your code;</li>
-<li>the <strong>number of vulnerabilities</strong> (as defined by the tools) and their type, etc.</li>
+<li>Il <strong>tasso di copertura dei test</strong> e il loro tipo;</li>
+<li>il <strong>tasso di duplicazione</strong> nel codice;</li>
+<li>il <strong>numeri di vulnerabilità</strong> (come definite dagli strumenti) e il loro tipo, ecc.</li>
 </ul></li>
 </ul>
-<h2 id="watch-out-for-your-test-data">Watch out for your test data!</h2>
+<h2 id="fai-attenzione-ai-dati-di-test">Fai attenzione ai dati di test!</h2>
 <ul>
-<li><p>&quot;Real&quot; production data should not be used during the development and testing phase. Using personal data from your production database for testing purposes is tantamount to <strong>diverting it from its original purpose</strong>.</p></li>
-<li><p>If personal data is used outside of production, it should be noted that the <strong>security risks</strong> are also <strong>increased</strong>: access to the data by people who do not have a need to know, multiple storage locations, etc.</p></li>
-<li><p>So build a <strong>dummy data set</strong> that will look like the data that will be processed by your application. A dummy data set will ensure that disclosure of this data will not have any impact on people.</p></li>
-<li><p>If you need to <strong>import existing configurations</strong> from production into your test cases, consider <strong>anonymizing the personal data</strong> that may be present.</p></li>
+<li>Non si dovrebbero usare dati “veri” di produzione nelle fasi di sviluppo e di test. Usare dati personali per fare dei test dal tuo database di produzione equivale a <strong>distoglierlo dal suo scopo originario</strong>.</li>
+<li>Se usi dati personali al di fuori della produzione, occorre ricordare che i <strong>rischi di sicurezza aumentano</strong>: accesso ai dati da parte di persone che non ne hanno necessità, molteplici posizioni di archiviazione, ecc.</li>
+<li>Per questo motivi devi costituire un <strong>dataset fittizio</strong> che assomigli ai dati che verranno effettivamente trattati dalla tua applicazione. Un dataset fittizio garantirà che la comunicazione di questi dati non abbia alcun impatto sulle persone.</li>
+<li>Se devi <strong>importare configurazioni esistenti</strong> dalla produzione nei tuoi test, considera l’<strong>anonimizzazione dei dati</strong> che siano presenti.</li>
 </ul>
-<h1 id="sheet-n12-inform-users">Sheet n°12: Inform users</h1>
-<h4 id="the-transparency-principle-of-the-gdpr-requires-that-any-information-or-communication-relating-to-the-processing-of-personal-data-should-be-concise-transparent-comprehensible-and-easily-accessible-in-plain-and-simple-language.">The transparency principle of the GDPR requires that any information or communication relating to the processing of personal data should be concise, transparent, comprehensible and easily accessible in plain and simple language.</h4>
-<h2 id="who-to-inform-and-when">Who to inform and when?</h2>
+<h1 id="scheda-n12-informa-gli-utenti">Scheda n°12: Informa gli utenti</h1>
+<h4 id="il-principio-di-trasparenza-del-gdpr-richiede-che-ogni-informazione-relativa-al-trattamento-di-dati-personali-sia-concisa-trasparente-comprensibile-e-facilmente-accessibile-in-linguaggio-chiaro-e-semplice.">Il principio di trasparenza del GDPR richiede che ogni informazione relativa al trattamento di dati personali sia concisa, trasparente, comprensibile e facilmente accessibile in linguaggio chiaro e semplice.</h4>
+<h2 id="chi-informare-e-quando">Chi informare, e quando?</h2>
 <ul>
-<li><p>Data subjects must be informed:</p>
+<li><p>Gli interessati devono essere informati:</p>
 <ul>
-<li><p>both <strong>in the case of direct data collection</strong> i.e. when data are collected directly from individuals (examples: form, online purchase, subscription of a contract, opening of a bank account) or when they are collected via devices or technologies for observing the activity of individuals (examples: analysis of Internet navigation, geolocation and Wi-Fi analytics/tracking for audience measurement, etc.) ;</p></li>
-<li><p>and <strong>in the case of indirect collection of personal data</strong>, when data are not collected directly from individuals (examples: data retrieved from trading partners, <em>data brokers</em>, publicly available sources, or others).</p></li>
+<li><p>sia <strong>nel caso di raccolta diretta dei dati</strong>, per esempio quando i dati sono raccolti direttamente dagli interessati (ad es. moduli, acquisti online, sottoscrizione di un contratto, apertura di un conto corrente bancario) oppure tramite strumenti o tecnologie che monitorano l’attività delle persone (ad es. analisi della navigazione Internet, geolocalizzazione e analytics o tracciamento Wi-Fi per la misura del pubblico, ecc.);</p></li>
+<li><p>che <strong>nel caso di raccolta indiretta di dati personali</strong>, quando i dati non sono raccolti dai diretti interessati (ad es.: dati ottenuti da partner commerciali, <em>data broker</em>, fonti pubblicamente disponibili, o altro.</p></li>
 </ul></li>
-<li>This information is needed:
+<li>Le informazioni devono essere fornite:
 <ul>
-<li><strong>during the data collection</strong> in the case of direct collection;</li>
-<li><strong>as soon as possible in the case of indirect collection</strong> (in particular at the time of first contact with the person) and no later than a month from the collection (with <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-be-informed/#exceptions">exceptions</a>);</li>
-<li><strong>in the event of a substantial change or a particular event</strong>. For example: new purpose, new recipients, change in the way rights are exercised, <a href="#Sheet_n°1:_Identify_personal_data">data breach</a>.</li>
-</ul></li>
-</ul>
-<h2 id="what-information-do-i-have-to-give">What information do I have to give?</h2>
-<ul>
-<li><p>In all cases, you must specify:</p>
-<ul>
-<li><strong>The identity and contact details of the organization</strong> that collects the data (who processes the data?) ;</li>
-<li><strong>The purposes</strong> (what will the collected data be used for?);</li>
-<li><strong>The lawful basis</strong> on which the data processing is based (find all the <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/"><strong>information on the lawful basis</strong></a>);</li>
-<li><strong>The compulsory or optional nature of the data collection</strong> (which implies an upstream reflection on the usefulness of collecting the data in view of the objective pursued - the principle of &quot;minimisation&quot; of the data) and the <strong>consequences for the person</strong> in case of failure to provide the data;</li>
-<li><strong>Recipients or categories of recipients of the data</strong> (who needs to access or receive them for the defined purposes, including processors?) ;</li>
-<li><strong>The data retention period</strong> (or criteria for determining it);</li>
-<li><strong>The existence of data subjects' rights and the means to exercise them</strong> (the rights of access, rectification, erasure and restriction are applicable to all processing operations) ;</li>
-<li><strong>The contact details of the Data Protection Officer</strong> of the body, if appointed, or of a contact point on personal data protection issues ;</li>
-<li><strong>The right to file a complaint with your local Data Protection Agency.</strong></li>
-</ul></li>
-<li><p>In certain specific cases, additional information must be provided, for example in the case of data transfers outside the EU, fully automated decision-making or profiling, or when the lawful basis for the processing is the legitimate interest pursued by the body collecting the data ( see the <a href="https://www.cnil.fr/sites/default/files/atoms/files/wp260_enpdf_transparency.pdf">guidelines on transparency</a> for more information).</p></li>
-<li><p>In the case of indirect collection, the following must be added:</p>
-<ul>
-<li><strong>Categories of data</strong> collected ;</li>
-<li><strong>The source of the data</strong> (indicating in particular whether it comes from publicly available sources).</li>
+<li><strong>prima dell’avvio della raccolta di dati</strong>, nel caso di raccolta diretta;</li>
+<li><strong>il prima possibile nel caso di raccolta indiretta</strong> (tutt’al più al primo contatto con la persona) e non oltre un mese dalla raccolta (con alcune <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-be-informed/#exceptions">eccezioni</a>);</li>
+<li><strong>nel caso di modifiche sostanziali al trattamento o di eventi particolari</strong>. Per esempio: nuova finalità, nuovi destinatari, modifiche al modo in cui si possono esercitare i diritti, <a href="#Scheda_n°1:_Identifica_i_dati_personali">data breach</a>.</li>
 </ul></li>
 </ul>
-<h2 id="in-what-form-should-i-provide-this-information">In what form should I provide this information?</h2>
+<h2 id="quali-informazioni-devo-fornire">Quali informazioni devo fornire?</h2>
 <ul>
-<li><p>The information must be <strong>easy to access</strong>: the user must be able to find it without difficulty.</p></li>
-<li><p><strong>It must be provided in a clear and comprehensible manner</strong>, i.e. with simple vocabulary (short sentences, no legal or technical terms, no ambiguities) and information adapted to the target audience (with particular attention to children and vulnerable persons).</p></li>
-<li><p><strong>It should be written in a concise manner</strong>. In order to avoid the pitfall of a flood of information drowning out the user, it is necessary to <strong>bring the most relevant information at the right time</strong>.</p></li>
-<li><p>Data protection related information must be <strong>distinguishable from information that is not specifically related to privacy (such as contractual clauses or general terms and conditions of use).</strong></p></li>
-</ul>
-<h2 id="what-communication-should-be-made-when-data-security-is-compromised">What communication should be made when data security is compromised?</h2>
+<li><p>In tutti i casi, devi specificare:</p>
 <ul>
-<li><p><strong>An organization may mistakenly or negligently suffer, accidentally or maliciously, a personal data breach, i.e. the destruction, loss, alteration or unauthorized disclosure of data</strong>. In this case, the organization must report the violation to the local data protection agency within <strong>72 hours</strong> if it is likely to pose a risk to the rights and freedoms of individuals.</p></li>
-<li><p>If these risks are high, the organization must also inform the persons concerned as soon as possible and provide them with advice on how to protect their data (e.g. cancellation of a compromised bank card, modification of a password, modification of privacy settings, etc.).</p></li>
-<li><p>Notification of the violation to the CNIL must be made via the <a href="https://www.cnil.fr/fr/notifier-une-violation-de-donnees-personnelles">CNIL website</a>.</p></li>
-</ul>
-<h2 id="useful-resources">Useful resources</h2>
+<li><strong>L’identità e i contatti dell’organizzazione</strong> che tratta i dati (chi tratta i dati?) ;</li>
+<li><strong>Le finalità</strong> (per cosa saranno usati i dati raccolti?);</li>
+<li><strong>La base giuridica</strong> su cui si fonda il trattamento (vedi tutte le <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/"><strong>informazioni sulla base giuridica</strong></a>);</li>
+<li><strong>La natura obbligatoria o facoltativa della raccolta di dati</strong> (la qual cosa richiede una riflessione a monte riguardo all’utilità della raccolta rispetto alla finalità perseguita – il principio di “minimizzazione” dei dati) e le <strong>conseguenze per l’interessato</strong> nel caso decida di non fornire i dati;</li>
+<li><strong>I destinatari o le categorie di destinatari dei dati</strong> (chi, per le finalità dichiarate, ha bisogno di accedere ai dati, o di riceverli, inclusi eventuali responsabili esterni?) ;</li>
+<li><strong>Il periodo di conservazione dei dati</strong> (o i criteri per determinarlo);</li>
+<li><strong>L’esistenza dei diritti dell’interessato e il modo in cui può esercitarli</strong> (diritti di accesso, rettifica, cancellazione, opposizione sono applicabili a tutte le operazioni di trattamento) ;</li>
+<li><strong>I contatti del responsabile per la Protezione dei Dati/Data Protection Officer</strong> dell’organizzazione, se nominato, o della persona che segue le problematiche relative alla protezione dati;</li>
+<li><strong>Il diritto di presentare reclamo all’Autorità Garante.</strong></li>
+</ul></li>
+<li><p>In certi casi particolare bisogna fornire informazioni ulteriori, come per esempio nel caso che i dati siano trasferiti al di fuori della UE, nel caso di profilazione o decisioni automatizzate, o quando la base giuridica del trattamento è il legittimo interesse di chi raccoglie i dati (Titolare); (v. le <a href="https://www.cnil.fr/sites/default/files/atoms/files/wp260_enpdf_transparency.pdf">linee guida sulla trasparenza</a> per ulteriori informazioni).</p></li>
+<li><p>Nel caso di raccolta indiretta dei dati, occorre specificare anche:</p>
 <ul>
-<li>The <a href="https://design.cnil.fr/en/">Data &amp; Design</a> site developed by the CNIL's Digital Innovation Laboratory develops these concepts and contains <a href="https://design.cnil.fr/en/concepts/information/">interface examples</a>.</li>
-<li>The CNIL site also contains <a href="https://www.cnil.fr/fr/rgpd-exemples-de-mentions-dinformation">many examples of information notices in French</a>.</li>
-<li>The <a href="https://www.cnil.fr/fr/les-violations-de-donnees-personnelles">personal data violations</a> page on the CNIL website (in French).</li>
+<li><strong>Le categorie di dati</strong> raccolti;</li>
+<li><strong>L’origine dei dati</strong> (indicando in particolare se vengono da fonti pubblicamente disponibili).</li>
+</ul></li>
 </ul>
-<h1 id="sheet-n13-prepare-for-the-exercise-of-people-rights">Sheet n°13: Prepare for the exercise of people rights</h1>
-<h4 id="the-persons-whose-data-you-process-have-rights-on-his-or-her-data-right-of-access-to-rectification-to-object-to-erasure-to-data-portability-and-to-restriction-of-processing.-you-must-give-them-the-means-to-effectively-exercise-their-rights-and-provide-in-your-computer-systems-the-technical-tools-that-will-allow-their-rights-to-be-properly-taken-into-account.">The persons whose data you process have rights on his or her data: right of access, to rectification, to object, to erasure, to data portability and to restriction of processing. You must give them the means to effectively exercise their rights and provide in your computer systems the technical tools that will allow their rights to be properly taken into account.</h4>
-<h4 id="preparing-in-advance-how-they-will-contact-you-and-how-you-will-deal-with-their-requests-will-enable-you-to-manage-the-exercise-of-these-rights-effectively.">Preparing in advance how they will contact you and how you will deal with their requests will enable you to manage the exercise of these rights effectively.</h4>
-<h2 id="minimum-measures-to-be-put-in-place">Minimum measures to be put in place</h2>
+<h2 id="in-quale-forma-devo-fornire-queste-informazioni-informativa">In quale forma devo fornire queste informazioni (informativa)?</h2>
+<ul>
+<li><p>Le informazioni devono essere <strong>di facile accesso</strong>: l’utente deve essere in gradi di trovarle senza difficoltà.</p></li>
+<li><p><strong>Devono essere fornite in modo chiaro e comprensibile</strong>, ad es. con un vocabolario ridotto (frasi brevi, niente termini tecnici o legali, niente ambiguità) e con informazioni adattate al tipo di pubblico (con particolare attenzione ai minori e alle persone vulnerabili).</p></li>
+<li><p><strong>Devono essere scritte in modo conciso</strong>. Per evitare che troppe informazioni stordiscano l’utente, è necessario <strong>fornire le informazioni più rilevanti al momento giusto</strong>.</p></li>
+<li><p>Le informazioni relative alla protezione dei dati devono essere <strong>distinguibili da informazioni non specificamente relative alla privacy (come clausole contrattuali o termini generali e condizioni d’uso).</strong></p></li>
+</ul>
+<h2 id="cosa-devo-comunicare-quando-la-sicurezza-dei-dati-viene-compromessa">Cosa devo comunicare quando la sicurezza dei dati viene compromessa?</h2>
+<ul>
+<li><p><strong>Un’organizzazione può, per errore o negligenza, accidentalmente o in seguito a un attacco, subire una violazione di dati personali, cioè la perdita, alterazione, distruzione o distribuzione non autorizzata di dati</strong>. In questo caso, se l’evento può rappresentare un rischio per i diritti e le libertà fondamentali degli interessati, l’organizzazione deve comunicare l’evento alla propria Autorità Garante <strong>entro 72 ore</strong>.</p></li>
+<li><p>Se questi rischi sono elevati, l’organizzazione deve anche informare il prima possibile gli interessati, fornendo loro indicazioni su come proteggere i propri dati (ad es. cancellazione di carte di credito compromesse, modifica di password, modifica dei parametri di sicurezza, ecc.).</p></li>
+<li><p>La notifica della violazione all’Autorità Garante deve avvenire tramite il modulo <a href="https://gpdp.it/web/guest/home/docweb/-/docweb-display/docweb/9128501">sul sito del Garante</a></p></li>
+</ul>
+<h2 id="risorse-utili">Risorse utili</h2>
+<ul>
+<li>Il sito <a href="https://design.cnil.fr/en/">Data &amp; Design</a> (in Inglese) sviluppato dal Digital Innovation Laboratory di CNIL sviluppa questri concetti e contiene <a href="https://design.cnil.fr/en/concepts/information/">esempi di interfaccia</a>.</li>
+<li>Il sito di CNIL contiene anche <a href="https://www.cnil.fr/fr/rgpd-exemples-de-mentions-dinformation">molti esempi di informative in Francese</a>.</li>
+<li>La <a href="https://www.cnil.fr/fr/les-violations-de-donnees-personnelles">pagina sulle violazioni dei dati personali</a> sul sito di CNIL (in Francese).</li>
+</ul>
+<h1 id="scheda-n13-preparati-allesercizio-dei-diritti-degli-interessati">Scheda n°13: Preparati all’esercizio dei diritti degli interessati</h1>
+<h4 id="le-persone-di-cui-tratti-i-dati-mantengono-dei-diritti-su-quei-dati-diritto-di-accesso-di-rettifica-di-opposizione-di-cancellazione-di-portabilità-dei-dati-e-di-limitazione-del-trattamento.-devi-fornire-loro-gli-strumenti-per-esercitare-in-modo-effettivo-i-loro-diritti-e-allo-stesso-tempo-includere-nei-tuoi-sistemi-informatici-tutti-gli-strumenti-informatici-necessari-perché-quei-diritti-possano-essere-adeguatamente-rispettati.">Le persone di cui tratti i dati mantengono dei diritti su quei dati: diritto di accesso, di rettifica, di opposizione, di cancellazione, di portabilità dei dati e di limitazione del trattamento. Devi fornire loro gli strumenti per esercitare in modo effettivo i loro diritti, e allo stesso tempo includere nei tuoi sistemi informatici tutti gli strumenti informatici necessari perché quei diritti possano essere adeguatamente rispettati.</h4>
+<h4 id="definendo-in-anticipo-le-modalità-con-cui-potranno-contattarti-e-i-modi-con-cui-risponderai-alle-loro-richieste-sarai-in-grado-di-gestire-in-modo-efficace-il-loro-esercizio-dei-diritti.">Definendo in anticipo le modalità con cui potranno contattarti, e i modi con cui risponderai alle loro richieste, sarai in grado di gestire in modo efficace il loro esercizio dei diritti.</h4>
+<h2 id="misure-minime-da-attivare">Misure minime da attivare</h2>
 <ul>
 <li><p>All organisations that use personal data have <strong>the obligation to indicate where and how</strong> individuals can exercise their rights in relation to this data. For example, you can mention an e-mail address or a web form when informing individuals, as well as in your privacy policy.</p></li>
-<li><p>In order to facilitate the exercise of people's rights, these rights may also be <strong>implemented</strong>, in whole or in part, directly in <strong>the application or software you develop</strong>. This specific implementation is not mandatory, but it allows you to meet users' expectations and reduce the time and complexity of processing this type of request.</p></li>
+<li><p>In order to facilitate the exercise of people’s rights, these rights may also be <strong>implemented</strong>, in whole or in part, directly in <strong>the application or software you develop</strong>. This specific implementation is not mandatory, but it allows you to meet users’ expectations and reduce the time and complexity of processing this type of request.</p></li>
 <li><p>Above all, in case of access or operations directly performed by a person who exercises his or her rights, do not forget to manage his <strong>authentication</strong> in a secure way. Overall, <strong>trace</strong> also all operations that have an impact on his or her personal data.</p></li>
 </ul>
-<h2 id="here-are-some-examples-of-rights-and-their-possible-implementation">Here are some examples of rights and their possible implementation</h2>
+<h2 id="alcuni-esempi-di-diritti-e-di-una-loro-possibile-implementazione">Alcuni esempi di diritti e di una loro possibile implementazione</h2>
 <ul>
-<li><p><strong>Right of access</strong>: people have the right to obtain a copy of all the information you have about them. This allows, among other things, a person to know whether data concerning him or her is being processed and to obtain a readable copy in an understandable format. In particular, it allows the accuracy of the data to be checked.<br /><strong><em>Possible implementation</em></strong>: Provide a functionality to display all data relating to a person. If there is a lot of data, you can split the data into several displays. If the data is too large, offer the person to download an archive containing all his or her data.</p></li>
-<li><strong>Right to erasure</strong>: Persons have the right to request the deletion of all the data you hold on them.<br /><strong><em>Possible implementations</em></strong>:
-<ol style="list-style-type: decimal">
-<li>Provide a functionality to erase all data relating to a person.</li>
-<li>Also provide for automatic notification of processors to also erase the data relating to that person.</li>
-<li>Provide for data erasure also in backups, or provide an alternative solution that does not restore erased data relating to that person.</li>
+<li><p><strong>Diritto di accesso</strong>: le persone hanno il diritto di ottenere una copia di tutte le informazioni su di loro di cui sei in possesso. Questo, fra l’altro, permette a una persona di sapere se dati che la riguardano stanno venendo trattati e di ottenerne una copia in un formato di uso comune. In particolare, la persona può controllare la correttezza delle informazioni.</p>
+<p><strong><em>Possibile implementazione</em></strong>: Prevedi una funzionalità che consenta la visualizzazione di tutti i dati relativi a uno specifico interessato. Se la quantità di dati è eccessiva, offri all’interessato la possibilità di scaricare un archivio contenente tutti i suoi dati.</p></li>
+<li><p><strong>Diritto di cancellazione</strong>: le personehanno il diritto di chiedere la cancellazione di tutti i dati di cui disponi su di loro.</p>
+<p><strong><em>Possibili implementazioni</em></strong>:</p>
+<ol type="1">
+<li>Prevedi una funzionalità che cancelli tutti i dati di una persona.</li>
+<li>Prevedi anche una notifica automatica a tutti i responsabili esterni perché a loro volta cancellino i dati relativi a quella persona.</li>
+<li>Prevedi anche la possibilità di cancellare i dati anche dai backup, o fornisci una soluzione alternativa che, quando si ripristina un backup, non ripristini i dati cancellati.</li>
 </ol></li>
-<li><p><strong>Right to object</strong>: individuals have the right to object in certain cases to their data being used for a specific purpose.<br /><strong><em>Possible implementation</em></strong>: provide a functionality allowing the data subject to object to the processing. When the data subject exercises his or her right to object in this way, the controller must delete data already collected, and must not subsequently collect any more data related to that person.</p></li>
-<li><p><strong>Right to data portability</strong>: Individuals have the right to retrieve their data in a machine-readable format for their own use or for transfer to another organisation.<br /><strong><em>Possible implementation</em></strong>: Provide a feature that allows the data subject to download his or her data in a standard machine-readable format (CSV, XML, JSON, etc.).</p></li>
-<li><p><strong>Right to rectification</strong>: Individuals have the right to request the modification of their data when it is incorrect in order to limit the use or dissemination of erroneous information.<br /><strong><em>Possible implementation</em></strong>: Allow to directly modify data in the user account.</p></li>
-<li><p><strong>Right to restriction of processing</strong>: individuals have the right to request that the processing of their data be blocked for a certain period of time, e.g. the time to examine a dispute on their part regarding the use of their data or a request to exercise rights.<br /><strong><em>Possible implementation</em></strong>: Allow administrators to put data about a person in &quot;quarantine&quot;: this data can then no longer be read or modified.</p></li>
+<li><strong>Diritto di opposizione</strong>: in alcuni casi le persone hanno il diritto a opporsi al trattamento dei loro dati per uno scopo specifico.<br />
+<strong><em>Possibile implementazione</em></strong>: prevedi una funzionalità che permetta agli interessatidi esprimere la propria opposizione al trattamento. Quando l’interessato esercita il proprio diritto di opposizione in questo modo, il Titolare del trattamento deve cancellare i dati già raccolti, e deve astenersi dal raccogliere altri dati relativi alla persona in questione.</li>
+<li><strong>Diritto alla portabilità dei dati</strong>: le persone hanno il diritto a ricevere i propri dati in un formato leggibile da computer per il proprio uso personale o per il trasferimento a un’altra organizzazione<br />
+<strong><em>Possibile implementazione</em></strong>: Prrevedi una funzionalità che consenta alle persone di scaricare i propri dati in un formato machine-readable standard (CSV, XML, JSON, etc.).</li>
+<li><strong>Diritto di rettifica</strong>: le persone hanno il diritto a chiedere la modifica dei propri dati quando questi siano scorretti, al fine di evitare la disseminazione di informazioni erronee.<br />
+<strong><em>Possibile implementazione</em></strong>: consenti la modifica diretta dei dati nell’account dell’utente.</li>
+<li><p><strong>Diritto alla limitazione del trattamento</strong>: le persone hanno il diritto a chiedere la sospensione per un certo periodo di tempo del trattamento dei propri dati, ad esempio per valutare una loro disputa riguardo al trattamento dei loro dati o per dar loro il tempo di esercitare i propri diritti. <strong><em>Possibile implementazione</em></strong>: Permetti agli amministratori di sistema di mettere “in quarantena” i dati di una persona: dsa quel momento quei dati non possono più essere né letti né modificati.</p></li>
 </ul>
-<h2 id="in-conclusion">In conclusion</h2>
+<h2 id="in-conclusione">In conclusione</h2>
 <ul>
-<li><p>The <a href="https://design.cnil.fr/en">Data &amp; Design site</a> developed by the CNIL's Digital Innovation Laboratory develops these concepts and contains <a href="https://design.cnil.fr/en/concepts/exercising-rights/">examples of interfaces for exercising rights</a>.</p></li>
-<li><p>Finally, be <strong>inventive</strong>! (In case of doubt, ask the CNIL for advice).</p></li>
+<li><p>Il <a href="https://design.cnil.fr/en">sito Data &amp; Design</a> sviluppato dal Digital Innovation Laboratory di CNIL sviluppa questi concetti e contiene <a href="https://design.cnil.fr/en/concepts/exercising-rights/">esempi di interfacce per l’esercizio dei diritti</a>.</p></li>
+<li><p>E poi, lascia andare la tua <strong>inventiva</strong>! (In caso di dubbi, puoi chiedere consiglio a CNIL).</p></li>
 </ul>
-<h1 id="sheet-n14-define-a-data-retention-period">Sheet n°14: Define a data retention period</h1>
-<h4 id="personal-data-cannot-be-kept-for-an-indefinite-period-of-time-this-must-be-defined-according-to-the-purposes-of-the-processing.-once-this-purpose-has-been-achieved-the-data-should-be-archived-deleted-or-made-anonymous-e.g.-in-order-to-produce-statistics.">Personal data cannot be kept for an indefinite period of time: this must be defined according to the purposes of the processing. Once this purpose has been achieved, the data should be archived, deleted or made anonymous (e.g. in order to produce statistics).</h4>
-<h2 id="data-retention-cycles">Data retention cycles</h2>
+<h1 id="scheda-n14-definisci-un-periodo-di-conservazione-dei-dati">Scheda n°14: Definisci un periodo di conservazione dei dati</h1>
+<h4 id="i-dati-personali-non-possono-essere-conservati-per-un-periodo-di-tempo-indefinito-il-periodo-di-conservazione-deve-essere-determinato-sulla-base-dello-scopo-del-trattamento.-una-volta-che-lo-scopo-è-stato-raggiunto-i-dati-devono-essere-archiviati-se-esiste-un-obbligo-di-legge-di-conservazione-cancellati-o-anonimizzati-ad-esempio-per-produrne-delle-statistiche.">I dati personali non possono essere conservati per un periodo di tempo indefinito: il periodo di conservazione deve essere determinato sulla base dello scopo del trattamento. Una volta che lo scopo è stato raggiunto, i dati devono essere archiviati (se esiste un obbligo di legge di conservazione), cancellati o anonimizzati (ad esempio, per produrne delle statistiche).</h4>
+<h2 id="cicli-di-conservazione-dei-dati">Cicli di conservazione dei dati</h2>
 <ul>
-<li>The personal data retention cycle can be divided into <strong>three distinct successive phases</strong>:
+<li>Il ciclo di conservazione dei dati personali può essere diviso in <strong>tre distinte fasi successive</strong>:
 <ul>
-<li>The active database;</li>
-<li>Intermediate archiving;</li>
-<li>Final archiving or deletion.</li>
+<li>il database attivo;</li>
+<li>l’archiviazione intermedia;</li>
+<li>l’archiviazione finale o la cancellazione.</li>
 </ul></li>
-<li><p>The mechanisms for deleting personal data from the active bases ensure that the data are kept and accessible by the operational services only <strong>for the time necessary to achieve the purpose of the processing operation</strong>.</p></li>
-<li><p>Ensure that <strong>data is not kept in active databases</strong> by simply noting them <strong>as being archived</strong>. The archived data (intermediate archive) must be accessible only to a specific service responsible for accessing and removing them from the archive if necessary.</p></li>
-<li><p>Please also ensure that you have <strong>specified access modes</strong> for the archived data, as the use of an archive must be on an ad hoc and exceptional basis.</p></li>
-<li><p>If possible, use the same implementation when implementing the <strong>data purging or anonymisation</strong> as the one managing the <strong>right to erasure</strong> (see [sheet on the exercise of rights](Sheet_n°13:<em>Prepare</em>for_the_exercise_of_people's_rights)), in order to guarantee a homogeneous operation of your system.</p></li>
+<li>I meccanismi per la cancellazione di dati personali dai database attivi assicurano che i dati siano conservati ed acceduti da parte dei servizi operativi solo <strong>per il tempo necessario al raggiungimento dello scopo del trattamento</strong> .</li>
+<li>Assicurati che <strong>i dati non sono mantenuti in database attivi</strong> semplicemente <strong>catalogandoli come archiviati</strong> . I dati archiviati (archivio intermedio) devono essere accessibili solo a uno specifico servizio responsabile della loro cancellazione dall’archivio se necessario.</li>
+<li>Assicurati di avere <strong>specificato dei modelli di accesso</strong> per i dati archiviati, perché l’accesso a un archivio deve avvenire solo per motivi specifici o eccezionali.</li>
+<li>Se possibile, utilizza la stessa implementazione tanto per <strong>la cancellazione o l’anonimizzazione</strong> quanto per il <strong>diritto alla cancellazione</strong> (vedi <a href="Scheda_n°13:_Preparati_all&#39;esercizio_dei_diritti_degli_interessati">scheda 13 sull’esercizio dei diritti</a>), in modo di garantire un funzionamento omogeneo del tuo sistema.</li>
 </ul>
-<h2 id="some-examples-of-shelf-life">Some examples of shelf life</h2>
+<h2 id="alcuni-esempi-di-tempi-di-conservazione">Alcuni esempi di tempi di conservazione</h2>
 <ul>
-<li><p>The <strong>data relating to payroll management or employee time control</strong> can be kept for 5 years.</p></li>
-<li><p>The <strong>data in a medical file</strong> must be kept for 20 years.</p></li>
-<li><p>The <strong>data of a prospect not responding to any solicitation</strong> can be kept for 3 years.</p></li>
-<li><p>The <strong>log data</strong> can be kept for 6 months.</p></li>
+<li><p>I <strong>dati relativi agli stipendi o al computo orario degli impiegati</strong> possono essere conservati per 5 anni.</p></li>
+<li><p>I <strong>dati in un archivio medico</strong> devono essere conservati per 20 anni.</p></li>
+<li><p>I <strong>dati di un potenziale cliente che non risponde ai solleciti</strong> possono venire conservati per 3 anni.</p></li>
+<li><p>I <strong>dati di log</strong> possono essere conservati per 6 mesi.</p></li>
 </ul>
-<h1 id="sheet-n15-take-into-account-the-legal-basis-in-the-technical-implementation">Sheet n°15: Take into account the legal basis in the technical implementation</h1>
-<h4 id="processing-of-personal-data-must-be-based-on-one-of-the-legal-basis-mentioned-in-article-6-of-the-gdpr.-the-legal-basis-of-a-processing-operation-is-in-a-way-the-justification-of-the-existence-of-the-processing-operation.-the-choice-of-a-legal-basis-has-a-direct-impact-on-the-conditions-for-implementing-the-processing-operation-and-the-rights-of-individuals.-thus-anticipating-the-legal-basis-of-the-processing-operations-prior-to-any-development-will-help-you-integrating-the-necessary-functions-to-ensure-that-these-processing-operations-comply-with-the-law-and-respect-the-individuals-rights.">Processing of personal data must be based on one of the &quot;legal basis&quot; mentioned in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=FR#d1e1888-1-1">Article 6 of the GDPR</a>. The legal basis of a processing operation is in a way the justification of the existence of the processing operation. The choice of a legal basis has a direct impact on the conditions for implementing the processing operation and <a href="#Fiche_n°13_:_Preparing_the_exercise_of_persons_rights">the rights of individuals</a>. Thus, anticipating the legal basis of the processing operations prior to any development will help you integrating the necessary functions to ensure that these processing operations comply with the law and respect the individuals rights.</h4>
-<h2 id="definition-of-the-legal-bases-in-the-rgpd">Definition of the legal bases in the RGPD</h2>
+<h1 id="scheda-n15-considera-la-base-giuridica-durante-limplementazione-tecnica">Scheda n°15: Considera la base giuridica durante l’implementazione tecnica</h1>
+<h4 id="il-trattamento-dei-dati-personali-si-deve-basare-su-una-delle-basi-giuridiche-indicate-nellarticolo-6-del-gdpr.-la-base-giuridica-di-un-trattamento-è-in-un-certo-senso-la-giustificazione-dellesistenza-del-trattamento.-la-scelta-di-una-base-giuridica-ha-una-ricaduta-diretta-sulle-condizioni-per-implementare-le-operazioni-di-trattamento-e-i-diritti-degli-interessati.-per-questo-individuare-le-basi-giuridiche-del-trattamento-prima-di-avviare-qualsiasi-sviluppo-ti-aiuterà-a-includere-le-funzioni-necessarie-ad-assicurare-che-tutte-le-operazioni-di-trattamento-rispondano-ai-requisiti-di-legge-e-rispettino-i-diritti-delle-persone.">Il trattamento dei dati personali si deve basare su una delle “basi giuridiche” indicate nell’<a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32016R0679&amp;from=IT#d1e1898-1-1">Articolo 6 del GDPR</a>. La base giuridica di un trattamento è in un certo senso la giustificazione dell’esistenza del trattamento. La scelta di una base giuridica ha una ricaduta diretta sulle condizioni per implementare le operazioni di trattamento e i <a href="#Scheda_n°13_:_Preparati_all&#39;esercizio_dei_diritti_degli_interessati">diritti degli interessati</a>. Per questo, individuare le basi giuridiche del trattamento prima di avviare qualsiasi sviluppo ti aiuterà a includere le funzioni necessarie ad assicurare che tutte le operazioni di trattamento rispondano ai requisiti di legge e rispettino i diritti delle persone.</h4>
+<h2 id="definizione-delle-basi-giuridiche-nel-gdpr">Definizione delle basi giuridiche nel GDPR</h2>
 <ul>
-<li>In the context of a development for a private organization (companies, associations, etc.), the legal basis often used are:
+<li>Nell’ambito di un’organizzazione privata, le basi giuridiche usate per sviluppare un trattamento di dati sono di solito:
 <ul>
-<li><strong>The contract</strong>: the processing is necessary for the performance or preparation of a contract between the data subject and the body carrying out the processing operation;</li>
-<li><strong>The legitimate interest</strong>: the organization has a &quot;legitimate&quot; interest in carrying out the processing and it is not likely to adversely affect the rights and freedoms of the data subjects;</li>
-<li><strong>Consent</strong>: the data subject has given his or her explicit consent to the processing.</li>
+<li><strong>Contratto</strong>: il trattamento è necessario per la preparazione o la realizzazione di un contratto fra l’interessato e l’entità che effettua le operazioni di trattamento;</li>
+<li><strong>Legittimo interesse</strong>: l’organizzazione ha un “legittimo” interesse a eseguire le operazioni di trattamento, che non rappresenta un rischio per i diritti e le libertà degli interessati.;</li>
+<li><strong>Consenso</strong>: L’interessato ha dato il suo esplicito consenso al trattamento dei propri dati.</li>
 </ul></li>
-<li>If you are a public authority or a body pursuing tasks in the public interest, other legal bases may also be used:
+<li>Un ente o una autorità pubblica che svolgono compiti di pubblico interesse possono usare anche altre basi giuridiche:
 <ul>
-<li><strong>The legal obligation</strong>: the processing is imposed by regulatory texts.</li>
-<li><strong>The public-interest mission</strong>: the processing is necessary for the performance of a task carried out in the public interest.</li>
+<li><strong>Obbligo di legge</strong>: il trattamento è richiesto da un testo normativo.</li>
+<li><strong>Compito di pubblico interesse</strong>: il trattamento è necessario per svolgere un compito nel pubblico interesse.</li>
 </ul></li>
-<li>Finally, in very specific cases, <strong>protect of vital interests</strong> may be used as a legal basis, for example when processing is necessary to monitor the spread of epidemics or in cases of humanitarian emergency.</li>
+<li>Infine, in casi molto specifici, la base giuridica può essere la <strong>tutela degli interessi vitali</strong>, per esempio quando il trattamento è necessario per monitorare la diffusione di un’epidemia o in casi di emergenza umanitaria.</li>
 </ul>
-<h2 id="choose-the-appropriate-legal-basis">Choose the appropriate legal basis</h2>
+<h2 id="scegli-la-base-giuridica-appropriata">Scegli la base giuridica appropriata</h2>
 <ul>
-<li><p>First of all, check on the CNIL website that <strong>a text does not impose any particular constraints</strong> (for example: <a href="https://www.cnil.fr/sites/default/files/atoms/files/draft_recommendation_cookies_and_other_trackers_en.pdf">cookies and other trackers</a>).</p></li>
-<li><p><strong>Only one legal basis must be chosen</strong> for a given purpose. Legal basis cannot be cumulated for the same purpose. The same data processing operation may pursue several purposes and a legal basis must then be defined for each of them.</p></li>
-<li><p>As mentioned above, if you are a <strong>public authority</strong>, the legal obligation and the public interest mission will be the most relevant in most cases.</p></li>
-<li><p>If your processing operation is part of a contractual relationship and its purpose is objectively and strictly necessary for the provision of the user's service (e.g. name, first name and address to create an account on an e-commerce site) then <strong>contract should be appropriate</strong>.</p></li>
-<li><p>If your processing is not part of a contractual relationship with the user, then <strong>the legal basis of consent or legitimate interest</strong> may be invoked. If your processing is potentially intrusive (profiling, collection of geolocation data, etc.) then <strong>consent is likely to be the appropriate legal basis</strong>.</p></li>
-<li><p>If your processing contains <strong>sensitive data</strong> (health data, data concerning life or sexual orientation, etc.), then you will need to identify, in addition to the legal basis, an exception provided for by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=FR#d1e2051-1-1">Article 9 of the GDPR</a>.</p></li>
+<li><p>Per prima cosa, controlla sul sito di CNIL che non ci siano <strong>norme che impongono specifici vincoli</strong> (per esempio: <a href="https://www.cnil.fr/sites/default/files/atoms/files/draft_recommendation_cookies_and_other_trackers_en.pdf">cookie e altri tracciatori</a>).</p></li>
+<li><p><strong>Una sola base giuridica può essere scelta</strong> per una data finalità. Non si possono cumulare più basi giuridiche per una stessa finalità. Le stesse operazioni possono rispondere a più di una finalità, e ciascuna di esse deve avere la propria base giuridica.</p></li>
+<li><p>Come detto sopra, nel caso di una <strong>pubblica autorità</strong>, l’obbligo di legge e il pubblico interesse saranno le basi giuridiche più rilevanti nella maggior parte dei casi.</p></li>
+<li><p>Se le operazioni di trattamento sono parte di una relazione contrattuale e il loro scopo è oggettivamente e strettamente necessario per la fornitura del servizio all’utente (ad es. nome, cognome e indirizzo per creare un account su un sito di commercio elettronico), allora la base giuridica più appropriata dovrebbe essere il <strong>contratto</strong>.</p></li>
+<li><p>Se il trattamento non è parte di una relazione contrattuale con l’utente, allora puoi appellarti <strong>alla base giuridica del consenso o del legittimo interesse</strong>. Se il trattamento è potenzialmente intrusivo (profilazione, raccolta di dati di geolocalizzazione, ecc.) allora <strong>è probabile che la base giuridica appropriata sia il consenso</strong>.</p></li>
+<li><p>Se il trattamento riguarda <strong>dati sensibili</strong> (dati riguardanti la salute, orientamento sessuale, politico, ecc.) allora, oltre alla base giuridica, devi identificare anche un’eccezione <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32016R0679&amp;from=IT#d1e2058-1-1">nell’articolo 9 del GDPR</a> al divieto di trattamento.</p></li>
 </ul>
-<h2 id="rights-exercises-and-modalities-of-information-to-be-provided-according-to-legal-basis">Rights exercises and modalities of information to be provided according to legal basis</h2>
+<h2 id="esercizio-dei-diritti-e-informazione-da-fornire-a-seconda-della-base-giuridica">Esercizio dei diritti e informazione da fornire a seconda della base giuridica</h2>
 <ul>
-<li>The following table summarizes the exercises of rights to be provided in accordance with legal basis:</li>
+<li>La tabella qui sotto riassume i diritti che possono essere esercitati per ciascuna base giuridica:</li>
 </ul>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th align="center"></th>
-<th align="center">Right of access</th>
-<th align="center">Right to rectification</th>
-<th align="center">Right to erasure</th>
-<th align="center">Right to restriction of processing</th>
-<th align="center">Right to data portability</th>
-<th align="center">Right to object</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Diritto di accesso</th>
+<th style="text-align: center;">Diritto di rettifica</th>
+<th style="text-align: center;">Diritto di cancellazione</th>
+<th style="text-align: center;">Diritto di limitazione</th>
+<th style="text-align: center;">Diritto alla portabilità dei dati</th>
+<th style="text-align: center;">Diritto di obiezione</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><strong>Consent</strong></td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center"><strong>Withdraw of consent</strong></td>
+<td style="text-align: center;"><strong>Consenso</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;"><strong>Ritiro del consenso</strong></td>
 </tr>
 <tr class="even">
-<td align="center"><strong>Contract</strong></td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
+<td style="text-align: center;"><strong>Contratto</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
 </tr>
 <tr class="odd">
-<td align="center"><strong>Legitimate interest</strong></td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
-<td align="center">✔</td>
+<td style="text-align: center;"><strong>Legittimo interesse</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
+<td style="text-align: center;">✔</td>
 </tr>
 <tr class="even">
-<td align="center"><strong>Legal obligation</strong></td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
-<td align="center">✘</td>
+<td style="text-align: center;"><strong>Obbligo di legge</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
+<td style="text-align: center;">✘</td>
 </tr>
 <tr class="odd">
-<td align="center"><strong>Public interest</strong></td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
-<td align="center">✔</td>
+<td style="text-align: center;"><strong>Pubblico interesse</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
+<td style="text-align: center;">✔</td>
 </tr>
 <tr class="even">
-<td align="center"><strong>Protect of vital interests</strong></td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
-<td align="center">✘</td>
+<td style="text-align: center;"><strong>Tutela degli interessi vitali</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✘</td>
+<td style="text-align: center;">✘</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li><p>The legal basis used must <strong>always appear in the information transmitted to the person</strong>.</p></li>
-<li><p><strong>Where your processing is based on legitimate interest</strong>, you must also indicate the legitimate interests pursued (fight against fraud, system security, etc.).</p></li>
-<li><p>It is recommended to <strong>document your choice of legal basis</strong>. As an example, these choices can be indicated in a processing map or associated with your technical documentation.</p></li>
+<li><p>La base giuridica deve **sempre comparire nell’informativa fornita alla persona interessata.</p></li>
+<li><p><strong>Se il trattamento si basa sul legittimo interesse</strong>, devi anche indicare quale interesse intendi perseguire (contrasto alle frodi, sicurezza del sistema, ecc.).</p></li>
+<li><p>Ti raccomandiamo di <strong>documentare la tua scelta di una base giuridica</strong>. Per esempio, puoi riportare queste scelte in una mappa dei processi o includerle nella documentazione tecnica.</p></li>
 </ul>
-<h2 id="the-specific-case-of-cookies-and-other-trackers">The specific case of cookies and other trackers</h2>
+<h2 id="il-caso-specifico-dei-cookie-e-degli-altri-tracciatori">Il caso specifico dei cookie e degli altri tracciatori</h2>
 <ul>
-<li><p>The European ePrivacy Directive requires the user's consent before any action is taken to store information - via cookies, identifiers or other tracers (software fingerprints, pixels) or to access information stored in the user's terminal equipment.</p></li>
-<li><p>However, an exception is made when cookies are for the sole purpose of carrying out electronic communication, or are strictly necessary to provide a service requested by the user.</p></li>
-<li><p>Furthermore, the use of a single tracer for multiple purposes does not exempt from obtaining consent for the purposes that require it. For example, if an authentication cookie is also used for advertising targeting purposes, consent must be obtained for the latter purpose, in the same way as for a non-logged site.</p></li>
+<li><p>La Direttiva Europea ePrivacy richiede il consenso dell’utente prima di qualsiasi azione che registri informazioni (tramite cookie, identificatori o altri tracciatori come fingerprint e pixel) o che acceda a informazioni registrate nel dispositivo dell’utente.</p></li>
+<li><p>Viene fatta un’eccezione quando i cookie hanno il solo scopo di consentire comunicazioni elettroniche, o sono strettamente necessari per fornire un servizio richiesto dall’utente.</p></li>
+<li><p>Inoltre, l’uso di un singolo tracciatore per una pluralità di scopi non ti esenta dall’ottenere il consenso per ciascuno degli scopi che lo richiedono. Per esempio, se un cookie di autenticazione viene usato anche per consentire pubblicità mirate, devi ottenere il consenso per questo secondo scopo, come faresti se l’utente non fosse autenticato.</p></li>
 </ul>
-<h1 id="sheet-n16-use-analytics-on-your-websites-and-applications">Sheet n°16: Use analytics on your websites and applications</h1>
-<h4 id="audience-measurement-tools-are-used-to-obtain-information-about-the-navigation-of-visitors-on-a-website-or-mobile-application.-in-particular-they-make-it-possible-to-understand-how-users-arrive-at-a-site-and-to-reconstruct-their-journey.-using-cookies-they-are-subject-to-the-rule-of-consent-except-in-one-particular-case.-please-note-that-this-section-is-relative-to-the-eprivacy-directive-and-may-be-subject-to-national-variation.-contact-you-local-data-protection-agency-to-know-its-position.">Audience measurement tools are used to obtain information about the navigation of visitors on a website or mobile application. In particular, they make it possible to understand how users arrive at a site and to reconstruct their journey. Using cookies, they are subject to the rule of consent, except in one particular case. Please note that this section is relative to the ePrivacy directive and may be subject to national variation. Contact you local data protection agency to know its position.</h4>
-<h2 id="obtaining-consent">Obtaining consent</h2>
+<h1 id="scheda-n16-usa-le-analytics-nei-tuoi-siti-e-applicazioni">Scheda n°16: Usa le analytics nei tuoi siti e applicazioni</h1>
+<h4 id="gli-strumenti-per-la-misurazione-del-pubblico-sono-utilizzati-per-ottenere-informazioni-riguardo-alla-navigazione-dei-visitatori-di-un-sito-o-di-una-applicazione-mobile.-in-particolare-rendono-possibile-comprendere-in-che-modo-gli-utenti-arrivano-al-sito-e-di-ricostruire-il-loro-percorso-al-suo-interno.-i-cookie-sono-soggetti-a-consenso-eccetto-in-un-caso-particolare.-nota-che-questa-sezione-fa-riferimento-alla-direttiva-eprivacy-e-può-essere-soggetta-a-variazioni-su-base-nazionale.-informati-presso-la-tua-autorità-garante-per-la-protezione-dei-dati-personali-per-conoscere-la-sua-posizione-al-riguardo.">Gli strumenti per la misurazione del pubblico sono utilizzati per ottenere informazioni riguardo alla navigazione dei visitatori di un sito o di una applicazione mobile. In particolare, rendono possibile comprendere in che modo gli utenti arrivano al sito e di ricostruire il loro percorso al suo interno. I cookie sono soggetti a consenso, eccetto in un caso particolare. Nota che questa sezione fa riferimento alla direttiva ePrivacy e può essere soggetta a variazioni su base nazionale. Informati presso la tua Autorità Garante per la Protezione dei Dati Personali per conoscere la sua posizione al riguardo.</h4>
+<h2 id="ottenere-il-consenso">Ottenere il consenso</h2>
 <ul>
-<li><p>Generally speaking, <strong>before depositing or reading a cookie or tracer,</strong> editors of sites or applications must:</p>
+<li><p>In generale, <strong>prima di caricare o leggere un cookie o un tracciatore</strong>, chi produce un sito o un’applicazione deve:</p>
 <ul>
-<li><p>inform Internet users of the purpose of cookies;</p></li>
-<li><p>obtain their consent;</p></li>
-<li><p>provide them with a means of refusing them.</p></li>
+<li><p>informare gli utenti Internet riguardo allo scopo dei cookie;</p></li>
+<li><p>ottenere il loro consenso;</p></li>
+<li><p>fornirgli la possibilità di rifiutarlo.</p></li>
 </ul></li>
-<li><p>Unless they fall exactly within the perimeter defined below, <strong>this obligation applies to tracers used for audience measurement</strong>.</p></li>
+<li><p>A meno di ricadere nel perimetro esatto descritto nel prossimo paragrafo, <strong>questo obbligo si applica ai tracciatori usati per la misurazione del pubblico</strong>.</p></li>
 </ul>
-<h2 id="to-benefit-from-the-exemption-from-consent">To benefit from the exemption from consent</h2>
+<h2 id="per-beneficiare-dellesenzione-dal-consenso">Per beneficiare dell’esenzione dal consenso</h2>
 <ul>
-<li><p><strong>Subject to a number of conditions</strong>, cookies used for audience measurement are exempt from consent.</p></li>
-<li><p><strong>These conditions, as specified in the <a href="https://www.cnil.fr/en/cookies-and-other-tracking-devices-cnil-publishes-new-guidelines">guidelines on cookies and other trackers</a>, are</strong>:</p>
+<li><p><strong>A seconda di un certo numero di condizioni</strong>, i cookie usati per la misurazione del pubblico sono esentati dal consenso.</p></li>
+<li><strong>Queste condizioni, specificate nelle <a href="https://www.cnil.fr/en/cookies-and-other-tracking-devices-cnil-publishes-new-guidelines">linee guida per i cookie e altri tracciatori (in Inglese)</a>, sono</strong>:</li>
+<li><p>Informare gli utenti del loro uso;</p></li>
+<li><p>Dare loro la possibilità di non acconsentire al loro uso;</p></li>
+<li><p>Limitarsi ai soli scopi che seguono:</p>
 <ul>
-<li><p>To inform users of their use;</p></li>
-<li><p>To give them the ability to object to their use;</p></li>
-<li><p>To limit to the following purposes only:</p>
-<ul>
-<li><p>audience measurement;</p></li>
+<li><p>misurazione del pubblico;</p></li>
 <li><p>A/B testing;</p></li>
 </ul></li>
-<li><p>Not to cross-check the data processed with other processing (customer files, statistics on visits to other sites, etc.);</p></li>
-<li><p>To limit the scope of the tracer to a single site or application editor;</p></li>
-<li><p>To truncate the last byte of the IP address;</p></li>
-<li><p>To limit the lifetime of the trackers to 13 months.</p></li>
-</ul></li>
-<li><p>Provided that the conditions are met, <strong>we therefore switch from an opt-in to an opt-out regime</strong>.</p></li>
-<li><p>It is also possible for the same third party (subcontractor) to provide a comparative audience measurement service to multiple publishers, provided that <strong>the data is collected, processed and stored independently for each publisher and that the trackers are independent of each other</strong>.</p></li>
+<li><p>Non incrociare i dati trattati con altri trattamenti (schede cliente, statistiche sulle visite ad altri siti, ecc.);</p></li>
+<li><p>Limitare lo scopo del tracciatore a un singolo sito o applicazione;</p></li>
+<li><p>troncare l’ultimo bit dell’indirizzo IP;</p></li>
+<li><p>Limitare la vita del tracciatore a 13 mesi.</p></li>
+<li><p>Se queste condizioni sono soddisfatte, possiamo <strong>passare da un regime opt-in (soggetto a consenso) a un regime opt-out</strong>.</p></li>
+<li><p>È anche possibile che una singola terza parte (fornitore) fornisca un servizio di misura comparativa del pubblico per più siti o applicazioni, a patto che **i dati siano raccolti, trattati e registrati indipendentemente per ciascun sito o applicazione e che i tracciatori siano indipendenti l’uno dall’altro.</p></li>
 </ul>
-<h2 id="in-practice">In practice</h2>
+<h2 id="in-pratica">In pratica</h2>
 <ul>
-<li><p><strong>Most large audience measurement offerings do not fall within the scope of the exemption, regardless of their configuration</strong>.</p></li>
-<li><p>In order to benefit from this exemption, please contact your solution provider or use open source software such as Matomo that you can configure yourself.</p></li>
+<li><p><strong>La maggior parte delle offerte riguardanti la misura del pubblico non ricadono nello scopo dell’esenzione, indipendentemente da come vengono configurate</strong>.</p></li>
+<li><p>Per beneficiare di questa esenzione, contatta il tuo solution provider, o usa software open source come Matomo che puoi configurare da te.</p></li>
 </ul>
             </div>
 </div>
