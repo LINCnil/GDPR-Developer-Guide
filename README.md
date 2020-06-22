@@ -27,7 +27,7 @@ The good practices in this guide **are therefore not intended to cover all the r
 
 ## Table of contents
 
-0. [Develop in compliance with the RGPD](#Sheet_n°0_:_Develop_in_compliance_with_the_RGPD)
+0. [Develop in compliance with the GDPR](#Sheet_n°0_:_Develop_in_compliance_with_the_GDPR)
 
 1. [Identify personal data](#Sheet_n°1_:_Identify_personal_data)
 
