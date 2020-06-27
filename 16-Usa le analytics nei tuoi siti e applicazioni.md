@@ -20,23 +20,23 @@
 
 * **Queste condizioni, specificate nelle [linee guida per i cookie e altri tracciatori (in Inglese)](https://www.cnil.fr/en/cookies-and-other-tracking-devices-cnil-publishes-new-guidelines), sono**:
 * Informare gli utenti del loro uso;
-    
+  
 * Dare loro la possibilità di non acconsentire al loro uso;
-    
+  
 * Limitarsi ai soli scopi che seguono:
-    
+  
     * misurazione del pubblico;
     
     * A/B testing;
     
 * Non incrociare i dati trattati con altri trattamenti  (schede cliente, statistiche sulle visite ad altri siti, ecc.);
-    
+  
 * Limitare lo scopo del tracciatore a un singolo sito o applicazione;
-    
+  
 * troncare l’ultimo bit dell’indirizzo IP;
-    
+  
 * Limitare la vita del tracciatore a 13 mesi.
-    
+  
 * Se queste condizioni sono soddisfatte, possiamo **passare da un regime opt-in (soggetto a consenso) a un regime opt-out**. 
 
 * &Egrave; anche possibile che una singola terza parte (fornitore) fornisca un servizio di misura comparativa del pubblico per più siti o applicazioni, a patto che **i dati siano raccolti, trattati e registrati indipendentemente per ciascun sito o applicazione e che i tracciatori siano indipendenti l’uno dall’altro.

@@ -13,15 +13,15 @@
 
 * **Segui le [raccomandazioni CNIL per le password](https://www.cnil.fr/fr/node/23803)**. In particolare, ricordati di mettere un limite al numero di tentativi di accesso.
 
-* **Non archiviare mai le passowrd in chiaro**. Memorizza il loro hash usando una libreria consolidata, come [bcrypt](https://en.wikipedia.org/wiki/Bcrypt).
+* **Non archiviare mai le password in chiaro**. Memorizza il loro hash usando una libreria consolidata, come [bcrypt](https://en.wikipedia.org/wiki/Bcrypt).
 
 * **Se usi cookie per l’autenticazione**, ti raccomandiamo:
 * di forzare l’uso di HTTPS tramite [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security);
-    
+  
 * di usare il flag `secure`;
-    
+  
 * usa il flag `HttpOnly`.
-    
+  
 * **Testa le librerire di crittografia installate sui tuoi sistemi** e disabilita quelle obsolete (RC4, MD4, MD5 etc.). Incoraggia l’utilizzo di AES256. [Leggi le note di OWASP al riguardo](https://owasp.org/www-project-cheat-sheets/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html).
 
 * **Adotta una politica specifica per le password degli amministratori**. Come minimo, cambia le loro password ogni volta che un amministratore lascia il lavoro, e comunque sempre in caso di sospetta violazione della sicurezza.
@@ -48,5 +48,5 @@
 
     * per l’accesso al database **usare account nominativi ** e creare account specifici per ciascuna applicazione;
     * **revoca i privilegi di amministratore** degli account (utente o applicativo) per evitare modifiche alla struttura del database (tabelle, viste, processi, ecc.);
-    * assicurati di proteggerti contro attacchi di tipo SQL injection o *script injection;
+    * assicurati di proteggerti contro attacchi di tipo SQL injection o *script injection*;
     * incoraggia la cifratura a riposo di dischi e database.

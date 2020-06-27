@@ -5,7 +5,7 @@
 
 #### Al fine di aiutare gli sviluppatori di applicativi e di siti web a rendere il loro lavoro rispondente ai requisiti del GDPR, lo CNIL ha redatto una nuova guida alle buone pratiche sotto licenza aperta, in modo che possa essere arricchita da altri professionisti.
 
-Questa guida è pubblicata con [licenza GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) e [open license 2.0](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf) (esplicitamente compatibile con [CC-BY 4.0 FR](https://creativecommons.org/licenses/by/4.0/deed.fr)). Potete contribuire liberamente alla sua reedazione.
+Questa guida è pubblicata con [licenza GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) e [open license 2.0](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf) (esplicitamente compatibile con [CC-BY 4.0 FR](https://creativecommons.org/licenses/by/4.0/deed.fr)). Potete contribuire liberamente alla sua redazione.
 
 La  [versione francese](https://github.com/LINCnil/Guide-RGPD-du-developpeur) è la versione autentica di questa guida.
 

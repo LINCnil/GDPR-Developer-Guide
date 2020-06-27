@@ -8,9 +8,9 @@
 
 * **Scegli software, librerie e SDK che vengono mantenuti:**
 * Se vuoi usare software libero o open source, scegli progetti o soluzioni con una comunità attiva di utenti, aggiornamenti regolari e buona documentazione.
-    
+  
 * Se usi altri tipi di soluzioni con un supporto commerciale, assicurati contrattualmente che il codice sia mantenuto e aggiornato per la durata di vita del tuo progetto.
-    
+  
 * **Tieni in considerazione la privacy.** Alcune librerie e alcuni SDK si ripagano usando i dati personali raccolti dalle applicazioni e dai siti in cui sono integrati. Assicurati che queste terze parti rispondano alle leggi applicabili sui dati personali, inclusa la corretta raccolta del consenso.
 
 * **Se usi meccanismi crittografici, ti sconsigliamo fortemente di implementarti da solo gli algoritmi di cifratura**, piuttosto scegli librerie crittografiche che sono riconosciute, mantenute e semplici da usare.
