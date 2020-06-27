@@ -7,11 +7,11 @@
 
 ## Misure minime da attivare
 
-* All organisations that use personal data have **the obligation to indicate where and how** individuals can exercise their rights in relation to this data. For example, you can mention an e-mail address or a web form when informing individuals, as well as in your privacy policy.
+* Ogni organizzazione che usa dati personali ha **l’obbligo di indicare dove e come** le persone interessate possono esercitare i propri diritti relativamente a quei dati. Per esempio, puoi indicare un indirizzo email o un form web al momento in cui informi le persone del trattamento o nella tua privacy policy.
+* Per facilitare l’esercizio dei diritti delle persone, questi diritti possono anche essere **implementati**, in tutto o in parte, direttamente **nell’applicazione o nel software che sviluppi**. Questo non è obbligatorio per legge, ma ti permette di venire incontro alle aspettative degli utenti e di ridurre il tempo e la complessità di  trattare le loro richieste.
+* Soprattutto, sia nell’accesso ai propri dati che nelle operazioni effettuate direttamente da una persona sui propri dati in tuo possesso, non dimenticare di gestire **l’autenticazione** in modo sicuro. Ad ogni modo, **tieni traccia** di tutte le operazioni che hanno un impatto sui suoi dati personali.
 
-* In order to facilitate the exercise of people's rights, these rights may also be **implemented**, in whole or in part, directly in **the application or software you develop**. This specific implementation is not mandatory, but it allows you to meet users' expectations and reduce the time and complexity of processing this type of request.
 
-* Above all, in case of access or operations directly performed by a person who exercises his or her rights, do not forget to manage his **authentication** in a secure way. Overall, **trace** also all operations that have an impact on his or her personal data.
 
 ## Alcuni esempi di diritti e di una loro possibile implementazione
 
