@@ -384,7 +384,7 @@ document.querySelector(output).innerHTML += toc;
 <h1 id="gdpr-developer-guide">GDPR Developer Guide</h1>
 <h4 id="in-order-to-assist-web-and-application-developers-in-making-their-work-gdpr-compliant-the-cnil-has-drawn-up-a-new-guide-to-best-practices-under-an-open-source-license-which-is-intended-to-be-enriched-by-professionals.">In order to assist web and application developers in making their work GDPR-compliant, the CNIL has drawn up a new guide to best practices under an open source license, which is intended to be enriched by professionals.</h4>
 <p>This guide is published under <a href="https://www.gnu.org/licenses/gpl-3.0.html">license GPLv3</a> and under <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">open license 2.0</a> (explicitly compatible with <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">CC-BY 4.0 FR</a>). You can freely contribute to its redaction.</p>
-<p>The <a href="https://github.com/LINCnil/Guide-RGPD-du-developpeur">French version</a> is the authentic version of this guide.</p>
+<p>The <a href="https://github.com/LINCnil/Guide-RGPD-du-developpeur">French version</a> is the authentic version of this guide. An Italian version of this guide is also available <a href="https://github.com/LINCnil/GDPR-Developer-Guide/releases/tag/V1.0">in pdf</a> and <a href="https://github.com/LINCnil/GDPR-Developer-Guide/tree/it">for contributions</a>.</p>
 <h4 id="is-this-guide-for-developers-only">Is this guide for developers only?</h4>
 <p>This guide is mainly aimed at developers working alone or in teams, team leaders, service providers but also at anyone interested in web or application development.</p>
 <p>It provides advice and best practices, and thus gives useful keys to understand the GDPR for every stakeholder, regardless of the size of their structure. It can also stimulate discussions and practices within the organisations and in customer relationships.</p>
@@ -395,7 +395,7 @@ document.querySelector(output).innerHTML += toc;
 <p>The good practices in this guide <strong>are therefore not intended to cover all the requirements of the regulations nor to be prescriptive</strong>, they provide a first level of measures to take into account privacy protection issues in IT developments that are intended to be applied to all data processing projects. Depending on the nature of the processing carried out in certain cases, additional measures will have to be implemented in order to fully comply with the regulations.</p>
 <h2 id="table-of-contents">Table of contents</h2>
 <ol start="0" style="list-style-type: decimal">
-<li><p><a href="#Sheet_n°0_:_Develop_in_compliance_with_the_RGPD">Develop in compliance with the RGPD</a></p></li>
+<li><p><a href="#Sheet_n°0_:_Develop_in_compliance_with_the_GDPR">Develop in compliance with the GDPR</a></p></li>
 <li><p><a href="#Sheet_n°1_:_Identify_personal_data">Identify personal data</a></p></li>
 <li><p><a href="#Sheet_n°2_:_Prepare_your_development">Prepare your development</a></p></li>
 <li><p><a href="#Sheet_n°3_:_Securing_your_development_environment">Securing your development environment</a></p></li>
@@ -416,7 +416,7 @@ document.querySelector(output).innerHTML += toc;
 <h2 id="how-can-i-contribute-to-this-guide">How can I contribute to this guide?</h2>
 <p><strong>This guide is available in two versions</strong>:</p>
 <ul>
-<li>A <a href="http://www.cnil.fr/en/rgpd-developers-guide">web version on the CNIL website</a> and in the tab <a href="https://github.com/LINCnil/GDPR-Developer-Guide/releases">the &quot;Releases&quot; tab</a> of this repository;</li>
+<li>A <a href="http://www.cnil.fr/en/gdpr-developers-guide">web version on the CNIL website</a> and in the tab <a href="https://github.com/LINCnil/GDPR-Developer-Guide/releases">the &quot;Releases&quot; tab</a> of this repository;</li>
 <li>This <a href="https://github.com/LINCnil/GDPR-Developer-Guide">GitHub version</a>, which offers the possibility for everyone to contribute.</li>
 </ul>
 <p><strong>The contribution is done in a few steps</strong>:</p>
@@ -429,14 +429,14 @@ document.querySelector(output).innerHTML += toc;
 <li>Use the &quot;Fork&quot; option to make your own modifications and propose their inclusion via the &quot;Pull Requests&quot; button.</li>
 </ul></li>
 </ul>
-<p><strong>Your contribution proposal will be examined by the CNIL before publication</strong>. The web version of the RGPD developer's guide will be regularly updated.</p>
+<p><strong>Your contribution proposal will be examined by the CNIL before publication</strong>. The web version of the GDPR developer's guide will be regularly updated.</p>
 <h2 id="usage">Usage</h2>
 <p>To release this repository yourself, you can use the <strong>Pandoc</strong> tool. This tool will allow you to convert the records into a docx file or an HTML document.</p>
 <p>You can find the instructions to install this tool <a href="https://pandoc.org/installing.html">here</a></p>
 <ul>
 <li><strong>To generate a .docx file</strong>:</li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> -s --toc --toc-depth=1 -o Guide_RGPD_developper.docx [0-9][0-9]*.md</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> -s --toc --toc-depth=1 -o GDPR_developer_guide.docx [0-9][0-9]*.md</code></pre>
 <ul>
 <li><strong>To generate an .html file</strong>:</li>
 </ul>
@@ -699,7 +699,7 @@ document.querySelector(output).innerHTML += toc;
 <ul>
 <li><strong>Read the documentation and change the default configurations</strong>. It is important to know how your dependencies work. Third party libraries and SDKs often come with default configuration files, which are rarely changed due to lack of time, which causes many security holes.</li>
 <li><strong>Audit your libraries and SDKs.</strong> Do you really know what all the libraries and SDKs you integrate do? What data is sent through these dependencies and to whom? This audit will allow you to determine the data protection obligations to be respected and to establish the responsibility of the actors.</li>
-<li><strong>Map you dependencies.</strong> Third-party libraries and SDKs can also integrate other components: auditing their code will allow you to better map all your dependencies and to better act if a problem affects one of them. It is also recommended that you perform security audits of your third-party components and monitor them.</li>
+<li><strong>Map your dependencies.</strong> Third-party libraries and SDKs can also integrate other components: auditing their code will allow you to better map all your dependencies and to better act if a problem affects one of them. It is also recommended that you perform security audits of your third-party components and monitor them.</li>
 <li><strong>Beware of <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a> and other malicious techniques.</strong> Check the names of dependencies, as well as their own dependencies to avoid attacks. Do not copy and paste command lines from unknown sites.</li>
 </ul>
 <h2 id="maintain-libraries-and-sdks">Maintain libraries and SDKs</h2>
@@ -865,7 +865,7 @@ document.querySelector(output).innerHTML += toc;
 </ul>
 <h1 id="sheet-n15-take-into-account-the-legal-basis-in-the-technical-implementation">Sheet n°15: Take into account the legal basis in the technical implementation</h1>
 <h4 id="processing-of-personal-data-must-be-based-on-one-of-the-legal-basis-mentioned-in-article-6-of-the-gdpr.-the-legal-basis-of-a-processing-operation-is-in-a-way-the-justification-of-the-existence-of-the-processing-operation.-the-choice-of-a-legal-basis-has-a-direct-impact-on-the-conditions-for-implementing-the-processing-operation-and-the-rights-of-individuals.-thus-anticipating-the-legal-basis-of-the-processing-operations-prior-to-any-development-will-help-you-integrating-the-necessary-functions-to-ensure-that-these-processing-operations-comply-with-the-law-and-respect-the-individuals-rights.">Processing of personal data must be based on one of the &quot;legal basis&quot; mentioned in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=FR#d1e1888-1-1">Article 6 of the GDPR</a>. The legal basis of a processing operation is in a way the justification of the existence of the processing operation. The choice of a legal basis has a direct impact on the conditions for implementing the processing operation and <a href="#Fiche_n°13_:_Preparing_the_exercise_of_persons_rights">the rights of individuals</a>. Thus, anticipating the legal basis of the processing operations prior to any development will help you integrating the necessary functions to ensure that these processing operations comply with the law and respect the individuals rights.</h4>
-<h2 id="definition-of-the-legal-bases-in-the-rgpd">Definition of the legal bases in the RGPD</h2>
+<h2 id="definition-of-the-legal-bases-in-the-gdpr">Definition of the legal bases in the GDPR</h2>
 <ul>
 <li>In the context of a development for a private organization (companies, associations, etc.), the legal basis often used are:
 <ul>

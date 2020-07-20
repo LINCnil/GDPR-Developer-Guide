@@ -20,7 +20,7 @@
 
 * **Read the documentation and change the default configurations**. It is important to know how your dependencies work. Third party libraries and SDKs often come with default configuration files, which are rarely changed due to lack of time, which causes many security holes.
 * **Audit your libraries and SDKs.** Do you really know what all the libraries and SDKs you integrate do? What data is sent through these dependencies and to whom? This audit will allow you to determine the data protection obligations to be respected and to establish the responsibility of the actors.
-* **Map you dependencies.** Third-party libraries and SDKs can also integrate other components: auditing their code will allow you to better map all your dependencies and to better act if a problem affects one of them. It is also recommended that you perform security audits of your third-party components and monitor them.
+* **Map your dependencies.** Third-party libraries and SDKs can also integrate other components: auditing their code will allow you to better map all your dependencies and to better act if a problem affects one of them. It is also recommended that you perform security audits of your third-party components and monitor them.
 * **Beware of [typosquatting](https://en.wikipedia.org/wiki/Typosquatting) and other malicious techniques.** Check the names of dependencies, as well as their own dependencies to avoid attacks. Do not copy and paste command lines from unknown sites.
 
 ## Maintain libraries and SDKs

@@ -7,7 +7,7 @@
 
 This guide is published under [license GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) and under [open license 2.0](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf) (explicitly compatible with [CC-BY 4.0 FR](https://creativecommons.org/licenses/by/4.0/deed.fr)). You can freely contribute to its redaction.
 
-The [French version](https://github.com/LINCnil/Guide-RGPD-du-developpeur) is the authentic version of this guide.
+The [French version](https://github.com/LINCnil/Guide-RGPD-du-developpeur) is the authentic version of this guide. An Italian version of this guide is also available [in pdf](https://github.com/LINCnil/GDPR-Developer-Guide/releases/tag/V1.0) and [for contributions](https://github.com/LINCnil/GDPR-Developer-Guide/tree/it).
 
 #### Is this guide for developers only?
 
@@ -27,7 +27,7 @@ The good practices in this guide **are therefore not intended to cover all the r
 
 ## Table of contents
 
-0. [Develop in compliance with the RGPD](#Sheet_n°0_:_Develop_in_compliance_with_the_RGPD)
+0. [Develop in compliance with the GDPR](#Sheet_n°0_:_Develop_in_compliance_with_the_GDPR)
 
 1. [Identify personal data](#Sheet_n°1_:_Identify_personal_data)
 
@@ -67,7 +67,7 @@ The good practices in this guide **are therefore not intended to cover all the r
 
 **This guide is available in two versions**:
 
-* A [web version on the CNIL website](http://www.cnil.fr/en/rgpd-developers-guide) and in the tab [the "Releases" tab](https://github.com/LINCnil/GDPR-Developer-Guide/releases) of this repository;
+* A [web version on the CNIL website](http://www.cnil.fr/en/gdpr-developers-guide) and in the tab [the "Releases" tab](https://github.com/LINCnil/GDPR-Developer-Guide/releases) of this repository;
 * This [GitHub version](https://github.com/LINCnil/GDPR-Developer-Guide), which offers the possibility for everyone to contribute.
 
 **The contribution is done in a few steps**:
@@ -78,7 +78,7 @@ The good practices in this guide **are therefore not intended to cover all the r
     * Use the "Issue" tab to open comments or participate in the discussion
     * Use the "Fork" option to make your own modifications and propose their inclusion via the "Pull Requests" button.
 
-**Your contribution proposal will be examined by the CNIL before publication**. The web version of the RGPD developer's guide will be regularly updated.
+**Your contribution proposal will be examined by the CNIL before publication**. The web version of the GDPR developer's guide will be regularly updated.
 
 ## Usage
 
@@ -90,7 +90,7 @@ You can find the instructions to install this tool [here]( https://pandoc.org/in
 * **To generate a .docx file**:
 
 ```bash
-pandoc -s --toc --toc-depth=1 -o Guide_RGPD_developper.docx [0-9][0-9]*.md
+pandoc -s --toc --toc-depth=1 -o GDPR_developer_guide.docx [0-9][0-9]*.md
 ```
 
 * **To generate an .html file**:

@@ -2,7 +2,7 @@
 
 #### Processing of personal data must be based on one of the "legal basis" mentioned in [Article 6 of the GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=FR#d1e1888-1-1). The legal basis of a processing operation is in a way the justification of the existence of the processing operation. The choice of a legal basis has a direct impact on the conditions for implementing the processing operation and [the rights of individuals](#Fiche_n°13_:_Preparing_the_exercise_of_persons_rights). Thus, anticipating the legal basis of the processing operations prior to any development will help you integrating the necessary functions to ensure that these processing operations comply with the law and respect the individuals rights.
 
-## Definition of the legal bases in the RGPD
+## Definition of the legal bases in the GDPR
 
 * In the context of a development for a private organization (companies, associations, etc.), the legal basis often used are:
     * **The contract**: the processing is necessary for the performance or preparation of a contract between the data subject and the body carrying out the processing operation;
