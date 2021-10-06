@@ -26,7 +26,7 @@
 
     * use the `HttpOnly` flag.
 
-* **Test the cryptographic suites installed on the systems** and disable obsolete ones (RC4, MD4, MD5 etc.). Encourage the use of AES256. [Read the OSWAP note on the subject](https://owasp.org/www-project-cheat-sheets/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html).
+* **Test the cryptographic suites installed on the systems** and disable obsolete ones (RC4, MD4, MD5 etc.). Encourage the use of AES256. [Read the OSWAP note on the subject](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html).
 
 * **Adopt a specific password policy for administrators**. Change the passwords, at least, each time an administrator leaves and in case of suspected breach. Encourage strong authentication when possible.
 
